@@ -56,6 +56,8 @@ button {
   padding-left: 0;
   padding-right: 0;
 
+  touch-action: manipulation;
+
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
