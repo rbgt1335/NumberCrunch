@@ -1,15 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: 'Nunito', sans-serif;
   background-color: #525252;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
 }
 
 .titlesbar {
-  padding-top: -20px;
-  border-bottom: 0;
-  margin-bottom: 10px;
 }
 
 .instructionsection{
@@ -40,26 +39,26 @@ h3{
 .instructions {
   text-align: center;
   font-size: 18px;
+  padding-bottom: 10%;
   color: #fff;
 }
 
 button {
   font-family: 'Nunito', sans-serif;
+  text-align: center;
   color: #909090;
   background-color: #505050;
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   border: 4px;
-  border-radius: 100px;
+  border-radius: 120px;
   border-style: solid;
   font-weight: 400;
-  font-size: 40px;
-  text-align: center;
+  font-size: 35px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
-
 
 button:hover {
   background-color: #AAAAAA;
