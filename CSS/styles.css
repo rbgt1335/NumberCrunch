@@ -46,14 +46,13 @@ button {
   text-align: center;
   color: #909090;
   background-color: #505050;
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   border: 4px;
-  border-radius: 60px;
+  border-radius: 70px;
   border-style: solid;
   font-weight: 700;
-  font-size: 30px;
-
+  font-size: 35px;
   touch-action: manipulation;
 
   -webkit-appearance: none;
