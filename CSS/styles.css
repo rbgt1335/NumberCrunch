@@ -1,30 +1,20 @@
 
-.topbuttons{
-  width: 50px;
-  height: 50px;
-  font-size: 20px;
-
-
-}
-.TitleText {
-}
-
 body {
   font-family: 'Nunito', sans-serif;
   background-color: #525252;
   text-align: center;
-  color: #fff;
   font-weight: 400;
-
 }
 
 h1 {
   font-weight: bold;
-  font-size: 47px;
+  font-size: 50px;
+  color: #fff;
 }
 
 h2 {
   font-size: 50px;
+  color: #fff;
 }
 
 h3{
@@ -32,8 +22,19 @@ h3{
   color: #90DB8F;
 }
 
+.topbuttons{
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+}
+
+.TitleText {
+
+}
+
 .instructions {
   font-size: 18px;
+  padding-top: 5px;
   color: #EEEEEE;
 }
 
@@ -42,16 +43,15 @@ h3{
 
 button {
   font-family: 'Nunito', sans-serif;
-  text-align: center;
   color: #909090;
   background-color: #505050;
   width: 85px;
   height: 85px;
-  border: 3.5px;
+  border: 3px;
   border-radius: 85px;
   border-style: solid;
   font-weight: 700;
-  font-size: 30px;
+  font-size: 35px;
   touch-action: manipulation;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -62,20 +62,22 @@ button:hover {
   background-color: #AAAAAA;
   color: #606060;
   border-color: #CCC;
-
 }
 
-button:active {
-  transform: translateY(2px);
+button:active{
   color: #fff;
+  background-color: #ddd;
+}
+.operationbuttons {
+  margin: 4px 4px 4px;
 }
 
-.operationbuttons {
-  margin: 3.2px 3.2px 3.2px;
+.operationbars {
 }
 
 .score {
   font-weight: bold;
   font-size: 28px;
-  color: #BCF7BB ;
+  color: #BCF7BB;
+  margin: auto;
 }
