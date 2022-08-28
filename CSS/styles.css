@@ -12,8 +12,9 @@ body {
 }
 
 .instructionsection{
-
 }
+
+
 
 h1 {
   text-align: center;
@@ -48,13 +49,16 @@ button {
   text-align: center;
   color: #909090;
   background-color: #505050;
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   border: 4px;
-  border-radius: 120px;
+  border-radius: 100px;
   border-style: solid;
   font-weight: 400;
-  font-size: 35px;
+  font-size: 30px;
+  padding-left: 0;
+  padding-right: 0;
+
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -67,10 +71,17 @@ button:hover {
 }
 
 .operationbuttons {
-  margin: 10px 30px 10px;
+  margin: 5px 5px 5px;
 }
 
 .operationbars {
   text-align: center;
-  margin: 10px 10px 5px;
+}
+
+.score {
+  text-align: center;
+  font-weight: bold;
+  padding-top: 40px;
+  font-size: 50px;
+  color: #BCF7BB ;
 }
