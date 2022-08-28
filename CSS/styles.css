@@ -8,25 +8,6 @@ body {
   background-color: #525252;
 }
 
-.titlesbar {
-}
-
-.instructionsection{
-}
-
-p {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-.score {
-  text-align: center;
-  font-weight: bold;
-  padding-top: 40px;
-  font-size: 50px;
-  color: #BCF7BB ;
-}
-
 h1 {
   text-align: center;
   font-weight: bold;
@@ -51,8 +32,13 @@ h3{
 .instructions {
   text-align: center;
   font-size: 18px;
-  padding-bottom: 10%;
-  color: #fff;
+  padding-top: 5px;
+  padding-bottom: 5%;
+  color: #EEEEEE;
+}
+
+.usernumber {
+  padding-bottom: 60px;
 }
 
 button {
@@ -65,8 +51,8 @@ button {
   border: 4px;
   border-radius: 100px;
   border-style: solid;
-  font-weight: 400;
-  font-size: 30px;
+  font-weight: 700;
+  font-size: 40px;
   padding-left: 0;
   padding-right: 0;
 
@@ -81,10 +67,26 @@ button:hover {
   border-color: #CCC;
 }
 
+button:active {
+  transform: translateY(2px);
+  color: #fff;
+}
+
 .operationbuttons {
   margin: 5px 5px 5px;
 }
 
 .operationbars {
   text-align: center;
+}
+
+.score {
+  text-align: center;
+  font-weight: bold;
+  padding-top: 30px;
+  font-size: 50px;
+  color: #BCF7BB ;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
