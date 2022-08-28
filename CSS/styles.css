@@ -1,6 +1,9 @@
 body {
   font-family: 'Nunito', sans-serif;
   background-color: #525252;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .titlesbar {
