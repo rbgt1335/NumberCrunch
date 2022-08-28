@@ -9,7 +9,7 @@ document.getElementById("Target").innerHTML = "Target: " + String(targetnumber);
 document.getElementById("usernumber").innerHTML = String(usernumber);
 
 
-document.querySelectorAll(".operationbuttons")[0].addEventListener("click", function() {
+document.querySelectorAll(".operationbuttons")[0].addEventListener("vclick", function() {
   if (usernumber + 1 <= 1000000000) {
     usernumber = usernumber + 1;
     guesses = guesses + 1;
@@ -20,7 +20,7 @@ document.querySelectorAll(".operationbuttons")[0].addEventListener("click", func
   document.querySelectorAll(".score")[0].innerHTML = "Moves: "+String(guesses);
 });
 
-document.querySelectorAll(".operationbuttons")[1].addEventListener("click", function() {
+document.querySelectorAll(".operationbuttons")[1].addEventListener("vclick", function() {
   if (usernumber * 2 <= 1000000000) {
     usernumber = usernumber * 2;
     guesses = guesses + 1;
@@ -31,7 +31,7 @@ document.querySelectorAll(".operationbuttons")[1].addEventListener("click", func
   document.querySelectorAll(".score")[0].innerHTML = "Moves: "+String(guesses);
 });
 
-document.querySelectorAll(".operationbuttons")[2].addEventListener("click", function() {
+document.querySelectorAll(".operationbuttons")[2].addEventListener("vclick", function() {
   if (usernumber * 10 <= 1000000000) {
     usernumber = usernumber * 10;
     guesses = guesses + 1;
@@ -42,7 +42,7 @@ document.querySelectorAll(".operationbuttons")[2].addEventListener("click", func
 document.querySelectorAll(".score")[0].innerHTML = "Moves: "+String(guesses);
 });
 
-document.querySelectorAll(".operationbuttons")[3].addEventListener("click", function() {
+document.querySelectorAll(".operationbuttons")[3].addEventListener("vclick", function() {
   if (usernumber * usernumber <= 1000000000) {
     usernumber = usernumber * usernumber;
     guesses = guesses + 1;
