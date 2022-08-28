@@ -14,7 +14,16 @@ body {
 .instructionsection{
 }
 
-
+.score {
+  text-align: center;
+  font-weight: bold;
+  padding-top: 40px;
+  font-size: 50px;
+  color: #BCF7BB ;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
 
 h1 {
   text-align: center;
@@ -76,12 +85,4 @@ button:hover {
 
 .operationbars {
   text-align: center;
-}
-
-.score {
-  text-align: center;
-  font-weight: bold;
-  padding-top: 40px;
-  font-size: 50px;
-  color: #BCF7BB ;
 }
