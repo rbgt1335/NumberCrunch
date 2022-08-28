@@ -22,23 +22,14 @@ h3{
   color: #90DB8F;
 }
 
-.topbuttons{
-  width: 50px;
-  height: 50px;
-  font-size: 30px;
-}
-
-.TitleText {
-
-}
-
 .instructions {
   font-size: 18px;
   padding-top: 5px;
   color: #EEEEEE;
 }
 
-.usernumber {
+.error-messages {
+  color: #525252;
 }
 
 button {
@@ -47,7 +38,7 @@ button {
   background-color: #505050;
   width: 85px;
   height: 85px;
-  border: 3px;
+  border: 3.5px;
   border-radius: 85px;
   border-style: solid;
   font-weight: 700;
@@ -56,6 +47,13 @@ button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+}
+
+.topbuttons{
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  font-size: 25px;
 }
 
 button:hover {
