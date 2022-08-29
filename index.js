@@ -22,7 +22,6 @@ document.querySelectorAll(".operationbuttons")[0].addEventListener("click", func
     document.querySelectorAll(".error-messages")[0].style.color = "#525252";
     document.querySelectorAll(".error-messages")[0].innerHTML = "_";
   } else {
-    pass
   }
   document.getElementById("usernumber").innerHTML = String(usernumber);
   document.querySelectorAll(".score")[0].innerHTML = "Moves: "+String(guesses);
@@ -35,7 +34,6 @@ document.querySelectorAll(".operationbuttons")[1].addEventListener("click", func
     document.querySelectorAll(".error-messages")[0].style.color = "#525252";
     document.querySelectorAll(".error-messages")[0].innerHTML = "_";
   } else {
-    pass
   }
   document.getElementById("usernumber").innerHTML = String(usernumber);
   document.querySelectorAll(".score")[0].innerHTML = "Moves: "+String(guesses);
@@ -48,7 +46,6 @@ document.querySelectorAll(".operationbuttons")[2].addEventListener("click", func
     document.querySelectorAll(".error-messages")[0].style.color = "#525252";
     document.querySelectorAll(".error-messages")[0].innerHTML = "_";
   } else {
-    pass
   }
   document.getElementById("usernumber").innerHTML = String(usernumber);
   document.querySelectorAll(".score")[0].innerHTML = "Moves: "+String(guesses);
@@ -61,7 +58,6 @@ document.querySelectorAll(".operationbuttons")[3].addEventListener("click", func
     document.querySelectorAll(".error-messages")[0].style.color = "#525252";
     document.querySelectorAll(".error-messages")[0].innerHTML = "_";
   } else {
-    pass
   }
   document.getElementById("usernumber").innerHTML = String(usernumber);
   document.querySelectorAll(".score")[0].innerHTML = "Moves: "+String(guesses);
@@ -74,7 +70,6 @@ document.querySelectorAll(".operationbuttons")[4].addEventListener("click", func
     document.querySelectorAll(".error-messages")[0].style.color = "#525252";
     document.querySelectorAll(".error-messages")[0].innerHTML = "_";
   } else {
-    pass
   }
   document.getElementById("usernumber").innerHTML = String(usernumber);
   document.querySelectorAll(".score")[0].innerHTML = "Moves: "+String(guesses);
@@ -88,7 +83,6 @@ document.querySelectorAll(".operationbuttons")[5].addEventListener("click", func
     document.querySelectorAll(".error-messages")[0].style.color = "#525252";
     document.querySelectorAll(".error-messages")[0].innerHTML = "_";
   } else {
-    pass
   }
   document.getElementById("usernumber").innerHTML = String(usernumber);
   document.querySelectorAll(".score")[0].innerHTML = "Moves: "+String(guesses);
@@ -102,7 +96,6 @@ document.querySelectorAll(".operationbuttons")[6].addEventListener("click", func
     document.querySelectorAll(".error-messages")[0].style.color = "#525252";
     document.querySelectorAll(".error-messages")[0].innerHTML = "_";
   } else {
-    pass
   }
   document.getElementById("usernumber").innerHTML = String(usernumber);
   document.querySelectorAll(".score")[0].innerHTML = "Moves: "+String(guesses);
