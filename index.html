@@ -21,7 +21,7 @@
 
 <body>
   <div>
-      <h1 class="titlesbar">NumberCrunch</h1>
+    <h1 class="titlesbar">NumberCrunch</h1>
   </div>
 
   <h3 id="Target" class="targetnumber"> Target: </h3>
@@ -53,29 +53,34 @@
     <button type="button" name="button" class="operationbuttons">√x</button>
   </div>
 
-  <div class="bottom-buttons">
-    <button type="button" name="button" class="topbuttons"><i class="fa-solid fa-wrench"></i></button>
-    <button type="button" name="button" class="topbuttons"><i class="fa-solid fa-square-poll-vertical"></i></button>
-    <button type="button" name="button" class="topbuttons"><i class="fa-solid fa-circle-info"></i></button>
+  <div class="bottom-button-container">
+    <button type="button" name="button" class="bottombuttons open-settings"><i class="fa-solid fa-wrench"></i></button>
+    <button type="button" name="button" class="bottombuttons open-stats"><i class="fa-solid fa-square-poll-vertical"></i></button>
+    <button type="button" name="button" class="bottombuttons open-info"><i class="fa-solid fa-circle-info"></i></button>
   </div>
 
 
   <div class="bg-modal-stats">
     <div class="modal-content">
       <div class="close-stats">+</div>
-        <div class="stats">
-          <p>You Won!</p>
-          <p>Your Best Score: </p>
-
-          <button type="button" name="button">Try Again</button>
-          <button type="button" name="button">Share</button>
-        </div>
+      <div class="stats">
+        <p>Stats</p>
+        <p>Today's Best Score: </p>
+      </div>
+      <div class="stat-buttons-container">
+        <button type="button" name="button" class="tryagain-button">Try Again  <i class="fa-solid fa-arrow-rotate-right"></i></button>
+        <button type="button" name="button" class="share-button">Share <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
+      </div>
     </div>
   </div>
 
   <div class="bg-modal-info">
     <div class="modal-content">
       <div class="close-info">+</div>
+      <div class="info">
+        <p>How To Play</p>
+
+      </div>
     </div>
   </div>
 

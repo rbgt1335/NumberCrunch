@@ -136,40 +136,20 @@ document.querySelectorAll(".operationbuttons")[7].addEventListener("click", func
 });
 
 
+
+/*bottom button functionality */
 document.querySelector('.close-stats').addEventListener('click',function() {
   document.querySelector('.bg-modal-stats').style.display = "none";
 })
 
+document.querySelectorAll('.open-stats')[0].addEventListener('click',function() {
+  document.querySelector('.bg-modal-stats').style.display = "flex";
+})
 
-(function() {
-    
-  var win = window,
-      doc = win.document;
+document.querySelector('.close-info').addEventListener('click',function() {
+  document.querySelector('.bg-modal-info').style.display = "none";
+})
 
-  // If there's a hash, or addEventListener is undefined, stop here
-  if ( !location.hash || !win.addEventListener ) {
-
-    //scroll to 1
-    window.scrollTo( 0, 1 );
-    var scrollTop = 1,
-
-    //reset to 0 on bodyready, if needed
-    bodycheck = setInterval(function(){
-      if( doc.body ){
-        clearInterval( bodycheck );
-        scrollTop = "scrollTop" in doc.body ? doc.body.scrollTop : 1;
-        win.scrollTo( 0, scrollTop === 1 ? 0 : 1 );
-      } 
-    }, 15 );
-
-    if (win.addEventListener) {
-      win.addEventListener("load", function(){
-        setTimeout(function(){
-          //reset to hide addr bar at onload
-          win.scrollTo( 0, scrollTop === 1 ? 0 : 1 );
-        }, 0);
-      }, false );
-    }
-  }
-
-})();
+document.querySelectorAll('.open-info')[0].addEventListener('click',function() {
+  document.querySelector('.bg-modal-info').style.display = "flex";
+})
