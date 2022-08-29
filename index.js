@@ -1,4 +1,4 @@
-var targetnumber = 1000000;
+var targetnumber = 571;
 
 var usernumber = 570;
 
@@ -25,6 +25,9 @@ document.querySelectorAll(".operationbuttons")[0].addEventListener("click", func
   }
   document.getElementById("usernumber").innerHTML = String(usernumber);
   document.querySelectorAll(".score")[0].innerHTML = "Moves: "+String(guesses);
+  if (usernumber==targetnumber) {
+    document.querySelector('.bg-modal-stats').style.display = "flex";
+  }
 });
 
 document.querySelectorAll(".operationbuttons")[1].addEventListener("click", function() {
@@ -37,6 +40,9 @@ document.querySelectorAll(".operationbuttons")[1].addEventListener("click", func
   }
   document.getElementById("usernumber").innerHTML = String(usernumber);
   document.querySelectorAll(".score")[0].innerHTML = "Moves: "+String(guesses);
+  if (usernumber==targetnumber) {
+    document.querySelector('.bg-modal-stats').style.display = "flex";
+  }
 });
 
 document.querySelectorAll(".operationbuttons")[2].addEventListener("click", function() {
@@ -49,6 +55,9 @@ document.querySelectorAll(".operationbuttons")[2].addEventListener("click", func
   }
   document.getElementById("usernumber").innerHTML = String(usernumber);
   document.querySelectorAll(".score")[0].innerHTML = "Moves: "+String(guesses);
+  if (usernumber==targetnumber) {
+    document.querySelector('.bg-modal-stats').style.display = "flex";
+  }
 });
 
 document.querySelectorAll(".operationbuttons")[3].addEventListener("click", function() {
@@ -61,6 +70,9 @@ document.querySelectorAll(".operationbuttons")[3].addEventListener("click", func
   }
   document.getElementById("usernumber").innerHTML = String(usernumber);
   document.querySelectorAll(".score")[0].innerHTML = "Moves: "+String(guesses);
+  if (usernumber==targetnumber) {
+    document.querySelector('.bg-modal-stats').style.display = "flex";
+  }
 });
 
 document.querySelectorAll(".operationbuttons")[4].addEventListener("click", function() {
@@ -73,6 +85,9 @@ document.querySelectorAll(".operationbuttons")[4].addEventListener("click", func
   }
   document.getElementById("usernumber").innerHTML = String(usernumber);
   document.querySelectorAll(".score")[0].innerHTML = "Moves: "+String(guesses);
+  if (usernumber==targetnumber) {
+    document.querySelector('.bg-modal-stats').style.display = "flex";
+  }
 });
 
 
@@ -86,6 +101,9 @@ document.querySelectorAll(".operationbuttons")[5].addEventListener("click", func
   }
   document.getElementById("usernumber").innerHTML = String(usernumber);
   document.querySelectorAll(".score")[0].innerHTML = "Moves: "+String(guesses);
+  if (usernumber==targetnumber) {
+    document.querySelector('.bg-modal-stats').style.display = "flex";
+  }
 });
 
 
@@ -99,6 +117,9 @@ document.querySelectorAll(".operationbuttons")[6].addEventListener("click", func
   }
   document.getElementById("usernumber").innerHTML = String(usernumber);
   document.querySelectorAll(".score")[0].innerHTML = "Moves: "+String(guesses);
+  if (usernumber==targetnumber) {
+    document.querySelector('.bg-modal-stats').style.display = "flex";
+  }
 });
 
 document.querySelectorAll(".operationbuttons")[7].addEventListener("click", function() {
@@ -112,4 +133,12 @@ document.querySelectorAll(".operationbuttons")[7].addEventListener("click", func
   }
   document.getElementById("usernumber").innerHTML = String(usernumber);
   document.querySelectorAll(".score")[0].innerHTML = "Moves: "+String(guesses);
+  if (usernumber==targetnumber) {
+    document.querySelector('.bg-modal-stats').style.display = "flex";
+  }
 });
+
+
+document.querySelector('.close-stats').addEventListener('click',function() {
+  document.querySelector('.bg-modal-stats').style.display = "none";
+})
