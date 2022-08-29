@@ -134,3 +134,7 @@ button:active{
   transform: rotate(45deg);
   cursor: pointer;
 }
+
+.bottom-buttons {
+  padding-top: 10%
+}
