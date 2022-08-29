@@ -63,6 +63,12 @@ button {
   border-width: 0;
 }
 
+button:hover{
+  color: #fff;
+  background-color: #AAAAAA;
+  border-color: #CCC;
+}
+
 button:active{
   color: #fff;
   background-color: #AAAAAA;
