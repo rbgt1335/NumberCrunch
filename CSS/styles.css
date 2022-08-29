@@ -108,8 +108,8 @@ button:active{
 }
 
 .modal-content {
-  width: 300px;
-  height: 400px;
+  width: 360px;
+  height: 500px;
   background-color: #DEDEDE;
   border-radius: 5px;
   text-align: center;
@@ -165,6 +165,11 @@ button:active{
   font-size: 14px;
 }
 
+.HTPtextcontent {
+  text-align: left;
+  font-size: 12px;
+  
+}
 .bottom-button-container {
   padding-top: 18%
 }
