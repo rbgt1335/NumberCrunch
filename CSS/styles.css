@@ -12,7 +12,7 @@ body {
 
 h1 {
   font-weight: bold;
-  font-size: 50px;
+  font-size: 46px;
   color: #fff;
 }
 
@@ -24,6 +24,7 @@ h2 {
 h3{
   font-size: 35px;
   color: #90DB8F;
+  /*color: #0AB860;*/
 }
 
 .instructions {
@@ -32,13 +33,14 @@ h3{
 }
 
 .error-messages {
+  font-weight: 400;
   color: #525252;
 }
 
 button {
   font-family: 'Nunito', sans-serif;
   color: #909090;
-  background-color: #505050;
+  background-color: #525252;
   width: 85px;
   height: 85px;
   border: 3px;
@@ -54,10 +56,11 @@ button {
 }
 
 .topbuttons{
-  width: 50px;
-  height: 50px;
-  border-radius: 50px;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
   font-size: 25px;
+  border-width: 0;
 }
 
 button:hover {
@@ -82,4 +85,35 @@ button:active{
   font-size: 28px;
   color: #BCF7BB;
   margin: auto;
+}
+
+.bg-modal {
+  width: 100%;
+  height: 100%;
+  background-color: rbga(0,0,0,.7);
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.modal-content {
+  width: 300px;
+  height: 400px;
+  background-color: white;
+  border-radius: 5px;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 14px;
+  font-size: 40px;
+  transform: rotate(45deg);
+  cursor: pointer;
 }
