@@ -1,6 +1,6 @@
-var targetnumber = 626;
+var targetnumber = 730;
 
-var usernumber = 730;
+var usernumber = 626;
 
 var guesses = 0;
 

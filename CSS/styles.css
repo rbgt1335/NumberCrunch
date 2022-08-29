@@ -63,16 +63,12 @@ button {
   border-width: 0;
 }
 
-button:hover {
+button:active{
+  color: #fff;
   background-color: #AAAAAA;
-  color: #606060;
   border-color: #CCC;
 }
 
-button:active{
-  color: #fff;
-  background-color: #ddd;
-}
 .operationbuttons {
   margin: 4px 4px 4px;
 }
