@@ -14,7 +14,6 @@ document.getElementById("Target").innerHTML = "Target: " + String(targetnumber);
 
 document.getElementById("usernumber").innerHTML = String(usernumber);
 
-
 document.querySelectorAll(".operationbuttons")[0].addEventListener("click", function() {
   if (usernumber + 1 <= maxval) {
     usernumber = usernumber + 1;
@@ -90,7 +89,6 @@ document.querySelectorAll(".operationbuttons")[4].addEventListener("click", func
   }
 });
 
-
 document.querySelectorAll(".operationbuttons")[5].addEventListener("click", function() {
   if (usernumber % 2 == 0) {
     usernumber = usernumber / 2;
@@ -105,7 +103,6 @@ document.querySelectorAll(".operationbuttons")[5].addEventListener("click", func
     document.querySelector('.bg-modal-stats').style.display = "flex";
   }
 });
-
 
 document.querySelectorAll(".operationbuttons")[6].addEventListener("click", function() {
   if (usernumber % 10 == 0 ) {
