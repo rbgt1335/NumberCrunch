@@ -2,6 +2,19 @@ var targetnumber = 1000000;
 
 var maxval = 1000000000;
 
+const backdate = new Date('August 30, 2022, 0:0:30');
+
+const datenow = Date.now();
+
+const puzzledaynumber = Math.floor(((datenow-backdate) / (1000*60*60)));
+
+/* 36e5 days differece*/
+
+console.log(backdate);
+console.log(datenow);
+
+console.log(puzzledaynumber);
+
 function lowerSquare(num) {
   return [(Math.floor(Math.sqrt(num)))**2,(Math.floor(Math.sqrt(num))+1)**2]
 }
@@ -30,6 +43,12 @@ document.querySelectorAll(".operationbuttons")[0].addEventListener("click", func
     document.querySelectorAll(".error-messages")[0].style.color = "#525252";
     document.querySelectorAll(".error-messages")[0].innerHTML = "_";
   } else {
+    document.querySelectorAll(".error-messages")[0].style.color = "#FFA81C";
+    document.querySelectorAll(".error-messages")[0].innerHTML = "Too Large";
+    document.querySelectorAll(".usernumber")[0].style.animation = "shake .15s";
+    setTimeout(function() {
+      document.querySelectorAll(".usernumber")[0].style.animation = "none";
+    }, 150);
   }
   document.getElementById("usernumber").innerHTML = String((parseInt(localStorage.getItem("usernumber"))));
   document.querySelectorAll(".score")[0].innerHTML = "Moves: "+localStorage.getItem("userscore");
@@ -45,6 +64,12 @@ document.querySelectorAll(".operationbuttons")[1].addEventListener("click", func
     document.querySelectorAll(".error-messages")[0].style.color = "#525252";
     document.querySelectorAll(".error-messages")[0].innerHTML = "_";
   } else {
+    document.querySelectorAll(".error-messages")[0].style.color = "#FFA81C";
+    document.querySelectorAll(".error-messages")[0].innerHTML = "Too Large";
+    document.querySelectorAll(".usernumber")[0].style.animation = "shake .15s";
+    setTimeout(function() {
+      document.querySelectorAll(".usernumber")[0].style.animation = "none";
+    }, 150);
   }
   document.getElementById("usernumber").innerHTML = String((parseInt(localStorage.getItem("usernumber"))));
   document.querySelectorAll(".score")[0].innerHTML = "Moves: "+localStorage.getItem("userscore");
@@ -60,6 +85,12 @@ document.querySelectorAll(".operationbuttons")[2].addEventListener("click", func
     document.querySelectorAll(".error-messages")[0].style.color = "#525252";
     document.querySelectorAll(".error-messages")[0].innerHTML = "_";
   } else {
+    document.querySelectorAll(".error-messages")[0].style.color = "#FFA81C";
+    document.querySelectorAll(".error-messages")[0].innerHTML = "Too Large";
+    document.querySelectorAll(".usernumber")[0].style.animation = "shake .15s";
+    setTimeout(function() {
+      document.querySelectorAll(".usernumber")[0].style.animation = "none";
+    }, 150);
   }
   document.getElementById("usernumber").innerHTML = String((parseInt(localStorage.getItem("usernumber"))));
   document.querySelectorAll(".score")[0].innerHTML = "Moves: "+localStorage.getItem("userscore");
@@ -75,6 +106,12 @@ document.querySelectorAll(".operationbuttons")[3].addEventListener("click", func
     document.querySelectorAll(".error-messages")[0].style.color = "#525252";
     document.querySelectorAll(".error-messages")[0].innerHTML = "_";
   } else {
+    document.querySelectorAll(".error-messages")[0].style.color = "#FFA81C";
+    document.querySelectorAll(".error-messages")[0].innerHTML = "Too Large";
+    document.querySelectorAll(".usernumber")[0].style.animation = "shake .15s";
+    setTimeout(function() {
+      document.querySelectorAll(".usernumber")[0].style.animation = "none";
+    }, 150);
   }
   document.getElementById("usernumber").innerHTML = String(parseInt(localStorage.getItem("usernumber")));
   document.querySelectorAll(".score")[0].innerHTML = "Moves: "+localStorage.getItem("userscore");
@@ -105,6 +142,12 @@ document.querySelectorAll(".operationbuttons")[5].addEventListener("click", func
     document.querySelectorAll(".error-messages")[0].style.color = "#525252";
     document.querySelectorAll(".error-messages")[0].innerHTML = "_";
   } else {
+    document.querySelectorAll(".error-messages")[0].style.color = "#FFA81C";
+    document.querySelectorAll(".error-messages")[0].innerHTML = "Can't Divide";
+    document.querySelectorAll(".usernumber")[0].style.animation = "shake .15s";
+    setTimeout(function() {
+      document.querySelectorAll(".usernumber")[0].style.animation = "none";
+    }, 150);
   }
   document.getElementById("usernumber").innerHTML = String(parseInt(localStorage.getItem("usernumber")));
   document.querySelectorAll(".score")[0].innerHTML = "Moves: "+localStorage.getItem("userscore");
@@ -120,6 +163,12 @@ document.querySelectorAll(".operationbuttons")[6].addEventListener("click", func
     document.querySelectorAll(".error-messages")[0].style.color = "#525252";
     document.querySelectorAll(".error-messages")[0].innerHTML = "_";
   } else {
+    document.querySelectorAll(".error-messages")[0].style.color = "#FFA81C";
+    document.querySelectorAll(".error-messages")[0].innerHTML = "Can't Divide";
+    document.querySelectorAll(".usernumber")[0].style.animation = "shake .15s";
+    setTimeout(function() {
+      document.querySelectorAll(".usernumber")[0].style.animation = "none";
+    }, 150);
   }
   document.getElementById("usernumber").innerHTML = String(parseInt(localStorage.getItem("usernumber")));
   document.querySelectorAll(".score")[0].innerHTML = "Moves: "+localStorage.getItem("userscore");
@@ -136,6 +185,10 @@ document.querySelectorAll(".operationbuttons")[7].addEventListener("click", func
     let x = lowerSquare(parseInt(localStorage.getItem("usernumber")))
     document.querySelectorAll(".error-messages")[0].style.color = "#FFA81C";
     document.querySelectorAll(".error-messages")[0].innerHTML = "The nearest perfect squares are " + String(x[0])+ " and " +String(x[1]);
+    document.querySelectorAll(".usernumber")[0].style.animation = "shake .15s";
+    setTimeout(function() {
+      document.querySelectorAll(".usernumber")[0].style.animation = "none";
+    }, 150);
   }
   document.getElementById("usernumber").innerHTML = String(parseInt(localStorage.getItem("usernumber")));
   document.querySelectorAll(".score")[0].innerHTML = "Moves: "+localStorage.getItem("userscore");
