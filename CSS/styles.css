@@ -21,7 +21,7 @@ h2 {
   color: #fff;
 }
 
-h3{
+h3 {
   font-size: 35px;
   color: #90DB8F;
 }
@@ -36,11 +36,31 @@ h3{
   color: #525252;
 }
 
-.score-div{
+.score-div {
   margin-top: 30px;
 }
 
+.usernumber {
+  animation: none;
+}
 
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(5px);
+  }
+
+  50% {
+    transform: translateX(-5px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
 
 button {
   font-family: 'Nunito', sans-serif;
@@ -60,7 +80,7 @@ button {
   appearance: none;
 }
 
-.bottombuttons{
+.bottombuttons {
   width: 40px;
   height: 40px;
   border-radius: 40px;
@@ -68,7 +88,7 @@ button {
   border-width: 0;
 }
 
-button:active{
+button:active {
   color: #fff;
   background-color: #AAAAAA;
   border-color: #CCC;
@@ -78,8 +98,7 @@ button:active{
   margin: 4px 4px 4px;
 }
 
-.operationbars {
-}
+.operationbars {}
 
 .score {
   font-weight: bold;
@@ -91,10 +110,9 @@ button:active{
 .bg-modal-stats {
   width: 100%;
   height: 100%;
-  background-color: rgba(90,90,90,.7);
+  background-color: rgba(90, 90, 90, .7);
   position: absolute;
   top: 0;
-  display: flex;
   justify-content: center;
   align-items: center;
   display: none;
@@ -103,10 +121,9 @@ button:active{
 .bg-modal-info {
   width: 100%;
   height: 100%;
-  background-color: rgba(90,90,90,.7);
+  background-color: rgba(90, 90, 90, .7);
   position: absolute;
   top: 0;
-  display: flex;
   justify-content: center;
   align-items: center;
   display: none;
@@ -150,11 +167,12 @@ button:active{
   font-size: 30px;
   margin-top: 0;
   padding-top: 0;
-
 }
-.statheader{
+
+.statheader {
   margin-bottom: 0;
 }
+
 .stats-bottom-buttons {
   color: #141414;
   background-color: #909090;
@@ -169,15 +187,16 @@ button:active{
   margin: 0 15px;
 }
 
-
 .modal-heading {
   font-weight: bold;
   font-size: 20px;
 }
+
 .HTPtextcontent {
   text-align: left;
-  font-size: 15px;
+  font-size: 14px;
 }
+
 .bottom-button-container {
-  padding-top: 16%
+  padding-top: 14%
 }
