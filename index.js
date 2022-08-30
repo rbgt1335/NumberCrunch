@@ -1,136 +1,145 @@
 var targetnumber = 730;
 
-var usernumber = 626;
-
-var guesses = 0;
-
 var maxval = 1000000000;
 
 function lowerSquare(num) {
   return [(Math.floor(Math.sqrt(num)))**2,(Math.floor(Math.sqrt(num))+1)**2]
 }
 
+
+if (localStorage.getItem("userscore") === null) {
+  localStorage.setItem("userscore", "0");
+};
+
+if (localStorage.getItem("usernumber") === null) {
+  localStorage.setItem("usernumber", "626");
+};
+
+
+
+document.querySelectorAll(".score")[0].innerHTML = "Moves: "+localStorage.getItem("userscore");
+
 document.getElementById("Target").innerHTML = "Target: " + String(targetnumber);
 
-document.getElementById("usernumber").innerHTML = String(usernumber);
+document.getElementById("usernumber").innerHTML = String((parseInt(localStorage.getItem("usernumber"))));
 
 document.querySelectorAll(".operationbuttons")[0].addEventListener("click", function() {
-  if (usernumber + 1 <= maxval) {
-    usernumber = usernumber + 1;
-    guesses = guesses + 1;
+  if (parseInt(localStorage.getItem("usernumber")) + 1 <= maxval) {
+    localStorage.setItem("usernumber",parseInt(localStorage.getItem("usernumber"))+1);
+    localStorage.setItem("userscore",parseInt(localStorage.getItem("userscore"))+1);
     document.querySelectorAll(".error-messages")[0].style.color = "#525252";
     document.querySelectorAll(".error-messages")[0].innerHTML = "_";
   } else {
   }
-  document.getElementById("usernumber").innerHTML = String(usernumber);
-  document.querySelectorAll(".score")[0].innerHTML = "Moves: "+String(guesses);
-  if (usernumber==targetnumber) {
+  document.getElementById("usernumber").innerHTML = String((parseInt(localStorage.getItem("usernumber"))));
+  document.querySelectorAll(".score")[0].innerHTML = "Moves: "+localStorage.getItem("userscore");
+  if (parseInt(localStorage.getItem("usernumber"))==targetnumber) {
     document.querySelector('.bg-modal-stats').style.display = "flex";
   }
 });
 
 document.querySelectorAll(".operationbuttons")[1].addEventListener("click", function() {
-  if (usernumber * 2 <= maxval) {
-    usernumber = usernumber * 2;
-    guesses = guesses + 1;
+  if (parseInt(localStorage.getItem("usernumber")) * 2 <= maxval) {
+    localStorage.setItem("usernumber",parseInt(localStorage.getItem("usernumber"))*2);
+    localStorage.setItem("userscore",parseInt(localStorage.getItem("userscore"))+1);
     document.querySelectorAll(".error-messages")[0].style.color = "#525252";
     document.querySelectorAll(".error-messages")[0].innerHTML = "_";
   } else {
   }
-  document.getElementById("usernumber").innerHTML = String(usernumber);
-  document.querySelectorAll(".score")[0].innerHTML = "Moves: "+String(guesses);
-  if (usernumber==targetnumber) {
+  document.getElementById("usernumber").innerHTML = String((parseInt(localStorage.getItem("usernumber"))));
+  document.querySelectorAll(".score")[0].innerHTML = "Moves: "+localStorage.getItem("userscore");
+  if (parseInt(localStorage.getItem("usernumber"))==targetnumber) {
     document.querySelector('.bg-modal-stats').style.display = "flex";
   }
 });
 
 document.querySelectorAll(".operationbuttons")[2].addEventListener("click", function() {
-  if (usernumber * 10 <= maxval) {
-    usernumber = usernumber * 10;
-    guesses = guesses + 1;
+  if (parseInt(localStorage.getItem("usernumber")) * 10 <= maxval) {
+    localStorage.setItem("usernumber",parseInt(localStorage.getItem("usernumber"))*10);
+    localStorage.setItem("userscore",parseInt(localStorage.getItem("userscore"))+1);
     document.querySelectorAll(".error-messages")[0].style.color = "#525252";
     document.querySelectorAll(".error-messages")[0].innerHTML = "_";
   } else {
   }
-  document.getElementById("usernumber").innerHTML = String(usernumber);
-  document.querySelectorAll(".score")[0].innerHTML = "Moves: "+String(guesses);
-  if (usernumber==targetnumber) {
+  document.getElementById("usernumber").innerHTML = String((parseInt(localStorage.getItem("usernumber"))));
+  document.querySelectorAll(".score")[0].innerHTML = "Moves: "+localStorage.getItem("userscore");
+  if (parseInt(localStorage.getItem("usernumber"))==targetnumber) {
     document.querySelector('.bg-modal-stats').style.display = "flex";
   }
 });
 
 document.querySelectorAll(".operationbuttons")[3].addEventListener("click", function() {
-  if (usernumber * usernumber <= maxval) {
-    usernumber = usernumber * usernumber;
-    guesses = guesses + 1;
+  if (parseInt(localStorage.getItem("usernumber")) * parseInt(localStorage.getItem("usernumber")) <= maxval) {
+    localStorage.setItem("usernumber",(parseInt(localStorage.getItem("usernumber")))*(parseInt(localStorage.getItem("usernumber"))));
+    localStorage.setItem("userscore",parseInt(localStorage.getItem("userscore"))+1);
     document.querySelectorAll(".error-messages")[0].style.color = "#525252";
     document.querySelectorAll(".error-messages")[0].innerHTML = "_";
   } else {
   }
-  document.getElementById("usernumber").innerHTML = String(usernumber);
-  document.querySelectorAll(".score")[0].innerHTML = "Moves: "+String(guesses);
-  if (usernumber==targetnumber) {
+  document.getElementById("usernumber").innerHTML = String(parseInt(localStorage.getItem("usernumber")));
+  document.querySelectorAll(".score")[0].innerHTML = "Moves: "+localStorage.getItem("userscore");
+  if (parseInt(localStorage.getItem("usernumber"))==targetnumber) {
     document.querySelector('.bg-modal-stats').style.display = "flex";
   }
 });
 
 document.querySelectorAll(".operationbuttons")[4].addEventListener("click", function() {
-  if (usernumber - 1 > 0) {
-    usernumber = usernumber - 1;
-    guesses = guesses + 1;
+  if (parseInt(localStorage.getItem("usernumber")) - 1 > 0) {
+    localStorage.setItem("usernumber",parseInt(localStorage.getItem("usernumber"))-1);
+    localStorage.setItem("userscore",parseInt(localStorage.getItem("userscore"))+1);
     document.querySelectorAll(".error-messages")[0].style.color = "#525252";
     document.querySelectorAll(".error-messages")[0].innerHTML = "_";
   } else {
   }
-  document.getElementById("usernumber").innerHTML = String(usernumber);
-  document.querySelectorAll(".score")[0].innerHTML = "Moves: "+String(guesses);
-  if (usernumber==targetnumber) {
+  document.getElementById("usernumber").innerHTML = String(parseInt(localStorage.getItem("usernumber")));
+  document.querySelectorAll(".score")[0].innerHTML = "Moves: "+localStorage.getItem("userscore");
+  if (parseInt(localStorage.getItem("usernumber"))==targetnumber) {
     document.querySelector('.bg-modal-stats').style.display = "flex";
   }
 });
 
 document.querySelectorAll(".operationbuttons")[5].addEventListener("click", function() {
-  if (usernumber % 2 == 0) {
-    usernumber = usernumber / 2;
-    guesses = guesses + 1;
+  if (parseInt(localStorage.getItem("usernumber")) % 2 == 0) {
+    localStorage.setItem("usernumber",parseInt(localStorage.getItem("usernumber"))/2);
+    localStorage.setItem("userscore",parseInt(localStorage.getItem("userscore"))+1);
     document.querySelectorAll(".error-messages")[0].style.color = "#525252";
     document.querySelectorAll(".error-messages")[0].innerHTML = "_";
   } else {
   }
-  document.getElementById("usernumber").innerHTML = String(usernumber);
-  document.querySelectorAll(".score")[0].innerHTML = "Moves: "+String(guesses);
-  if (usernumber==targetnumber) {
+  document.getElementById("usernumber").innerHTML = String(parseInt(localStorage.getItem("usernumber")));
+  document.querySelectorAll(".score")[0].innerHTML = "Moves: "+localStorage.getItem("userscore");
+  if (parseInt(localStorage.getItem("usernumber"))==targetnumber) {
     document.querySelector('.bg-modal-stats').style.display = "flex";
   }
 });
 
 document.querySelectorAll(".operationbuttons")[6].addEventListener("click", function() {
-  if (usernumber % 10 == 0 ) {
-    usernumber = usernumber / 10;
-    guesses = guesses + 1;
+  if (parseInt(localStorage.getItem("usernumber")) % 10 == 0 ) {
+    localStorage.setItem("usernumber",parseInt(localStorage.getItem("usernumber"))/10);
+    localStorage.setItem("userscore",parseInt(localStorage.getItem("userscore"))+1);
     document.querySelectorAll(".error-messages")[0].style.color = "#525252";
     document.querySelectorAll(".error-messages")[0].innerHTML = "_";
   } else {
   }
-  document.getElementById("usernumber").innerHTML = String(usernumber);
-  document.querySelectorAll(".score")[0].innerHTML = "Moves: "+String(guesses);
-  if (usernumber==targetnumber) {
+  document.getElementById("usernumber").innerHTML = String(parseInt(localStorage.getItem("usernumber")));
+  document.querySelectorAll(".score")[0].innerHTML = "Moves: "+localStorage.getItem("userscore");
+  if (parseInt(localStorage.getItem("usernumber"))==targetnumber) {
     document.querySelector('.bg-modal-stats').style.display = "flex";
   }
 });
 
 document.querySelectorAll(".operationbuttons")[7].addEventListener("click", function() {
-  if (Math.sqrt(usernumber)%1==0) {
-    usernumber = Math.sqrt(usernumber);
-    guesses = guesses + 1;
+  if (Math.sqrt(parseInt(localStorage.getItem("usernumber")))%1==0) {
+    localStorage.setItem("usernumber",Math.sqrt(parseInt(localStorage.getItem("usernumber"))));
+    localStorage.setItem("userscore",parseInt(localStorage.getItem("userscore"))+1);
   } else {
-    let x = lowerSquare(usernumber)
+    let x = lowerSquare(parseInt(localStorage.getItem("usernumber")))
     document.querySelectorAll(".error-messages")[0].style.color = "#FFA81C";
     document.querySelectorAll(".error-messages")[0].innerHTML = "The nearest perfect squares are " + String(x[0])+ " and " +String(x[1]);
   }
-  document.getElementById("usernumber").innerHTML = String(usernumber);
-  document.querySelectorAll(".score")[0].innerHTML = "Moves: "+String(guesses);
-  if (usernumber==targetnumber) {
+  document.getElementById("usernumber").innerHTML = String(parseInt(localStorage.getItem("usernumber")));
+  document.querySelectorAll(".score")[0].innerHTML = "Moves: "+localStorage.getItem("userscore");
+  if (parseInt(localStorage.getItem("usernumber"))==targetnumber) {
     document.querySelector('.bg-modal-stats').style.display = "flex";
   }
 });
@@ -152,4 +161,17 @@ document.querySelector('.close-info').addEventListener('click',function() {
 
 document.querySelectorAll('.open-info')[0].addEventListener('click',function() {
   document.querySelector('.bg-modal-info').style.display = "flex";
+})
+
+
+
+/*local storage operations*/
+
+document.querySelector('.tryagain-button').addEventListener('click',function() {
+  localStorage.setItem("userscore","0");
+  document.querySelectorAll(".score")[0].innerHTML = "Moves: "+localStorage.getItem("userscore");
+  document.querySelector('.bg-modal-stats').style.display = "none";
+  localStorage.setItem("usernumber",String(626));
+  document.getElementById("usernumber").innerHTML = String((parseInt(localStorage.getItem("usernumber"))));
+  
 })
