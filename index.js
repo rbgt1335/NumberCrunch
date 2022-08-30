@@ -1,4 +1,4 @@
-var targetnumber = 1000000;
+var targetnumber = 730;
 
 var maxval = 1000000000;
 
@@ -12,7 +12,7 @@ if (localStorage.getItem("userscore") === null) {
 };
 
 if (localStorage.getItem("usernumber") === null) {
-  localStorage.setItem("usernumber", "570");
+  localStorage.setItem("usernumber", "626");
 };
 
 
@@ -171,7 +171,7 @@ document.querySelector('.tryagain-button').addEventListener('click',function() {
   localStorage.setItem("userscore","0");
   document.querySelectorAll(".score")[0].innerHTML = "Moves: "+localStorage.getItem("userscore");
   document.querySelector('.bg-modal-stats').style.display = "none";
-  localStorage.setItem("usernumber",String(570));
+  localStorage.setItem("usernumber",String(626));
   document.getElementById("usernumber").innerHTML = String((parseInt(localStorage.getItem("usernumber"))));
-
+  
 })
