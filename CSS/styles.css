@@ -62,6 +62,10 @@ h3 {
   }
 }
 
+.usernumber-container {
+  margin: 0 200px 200px;
+}
+
 button {
   font-family: 'Nunito', sans-serif;
   color: #909090;
