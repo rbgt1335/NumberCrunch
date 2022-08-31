@@ -232,20 +232,14 @@ function madeValidMove() {
 function divisionError() {
   document.querySelectorAll(".error-messages")[0].style.color = "#FFA81C";
   document.querySelectorAll(".error-messages")[0].innerHTML = "Can't Divide";
-  document.querySelectorAll(".usernumber")[0].style.animation = "shake .15s";
-  setTimeout(function() {
-    document.querySelectorAll(".usernumber")[0].style.animation = "none";
-  }, 150);
+  shakeOnError();
 }
 
 /*large error*/
 function tooLargeError() {
   document.querySelectorAll(".error-messages")[0].style.color = "#FFA81C";
   document.querySelectorAll(".error-messages")[0].innerHTML = "Too Large";
-  document.querySelectorAll(".usernumber")[0].style.animation = "shake .15s";
-  setTimeout(function() {
-    document.querySelectorAll(".usernumber")[0].style.animation = "none";
-  }, 150);
+  shakeOnError();
 }
 
 /*sqrt error*/
@@ -253,10 +247,14 @@ function nonRootable() {
   let x = lowerSquare(parseInt(localStorage.getItem("usernumber")))
   document.querySelectorAll(".error-messages")[0].style.color = "#FFA81C";
   document.querySelectorAll(".error-messages")[0].innerHTML = "Nearest perfect squares: " + String(x[0]) + " and " + String(x[1]);
-  document.querySelectorAll(".usernumber")[0].style.animation = "shake .15s";
+  shakeOnError();
+}
+
+function shakeOnError() {
+  document.querySelectorAll(".usernumber")[0].style.animation = "shake .14s";
   setTimeout(function() {
     document.querySelectorAll(".usernumber")[0].style.animation = "none";
-  }, 150);
+  }, 140);
 }
 
 /*update number and check win*/
