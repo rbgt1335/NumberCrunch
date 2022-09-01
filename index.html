@@ -29,6 +29,7 @@
   <div class="instructionsection">
     <p class="instructions">Use the given operations to transform your initial value into the target value in as few moves as possible</p>
     <p class="error-messages">___</p>
+    <p class="error-messages-values">___</p>
   </div>
 
   <div class="usernumber-container">
@@ -68,18 +69,23 @@
       <div class="stats">
         <p class="modal-heading">Stats</p>
         <div class="stats-facts-container">
-          <p class="statheader">Today's Best Score </p>
-          <p class="statnumber best-score"></p>
-          <p class="statheader">Games Won </p>
-          <p class="statnumber games-won"></p>
-          <p class="statheader">Current Streak </p>
-          <p class="statnumber daily-streak"></p>
-          <p class="statheader">Longest Streak </p>
-          <p class="statnumber longest-streak"></p>
+          <p class="stats-para statheader">Today's Best Score </p>
+          <p class="stats-para statnumber best-score"></p>
         </div>
-
-
+        <div class="stats-facts-container">
+          <p class="stats-para statheader">Games Won </p>
+          <p class="stats-para statnumber games-won"></p>
+        </div>
+        <div class="stats-facts-container">
+          <p class="stats-para statheader">Current Streak </p>
+          <p class="stats-para statnumber daily-streak"></p>
+        </div>
+        <div class="stats-facts-container">
+          <p class="stats-para statheader">Longest Streak </p>
+          <p class="stats-para statnumber longest-streak"></p>
+        </div>
       </div>
+
       <div class="stat-buttons-container">
         <button type="button" name="button" class="tryagain-button stats-bottom-buttons">Try Again <i class="fa-solid fa-arrow-rotate-right"></i></button>
         <button type="button" name="button" class="share-button stats-bottom-buttons">Share <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
@@ -93,13 +99,12 @@
       <div class="info">
         <p class="modal-heading">How To Play</p>
         <p class="HTPtextcontent">
-          New Puzzle Daily! A solution is guaranteed to be 5 to 7 moves away.
-
+          New Puzzle Daily! A solution is guaranteed to be 5 to 7 moves away except on Friday's.
         </p>
 
         <p class="HTPtextcontent">
-          Friday's are "Free For All" in which the numbers are truly randomly generated and
-          not guranteed to have a quick solution.
+          Friday "Free For All" will have truly randomly generated values and
+          likely won't have a quick solution.
         </p>
 
         <p class="HTPtextcontent">
@@ -124,6 +129,8 @@
 
   <script src="index.js">
   </script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
 </body>
 
 </html>
