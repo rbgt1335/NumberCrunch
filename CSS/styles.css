@@ -39,8 +39,10 @@ h3 {
 .instructions {
   font-size: 15px;
   color: #EEEEEE;
+  margin-left: 20px;
+  margin-right: 20px;
 }
-
+/*
 .error-messages {
   color: #525252;
   margin-bottom: 0;
@@ -48,8 +50,23 @@ h3 {
 .error-messages-values {
   color: #525252;
   margin-top: 0;
-}
+}*/
 
+.error-messages {
+  font-size: 15px;
+  color: #EEEEEE;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.error-messages-values {
+  font-size: 15px;
+  color: #EEEEEE;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 0;
+}
 .score-div {
   margin-top: 30px;
 }
