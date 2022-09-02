@@ -30,18 +30,12 @@ h3 {
 .score {
   font-weight: bold;
   font-size: 20px;
-  color: #AADDAA;
-  margin-top: 45px;
+  color: #95DD95;
+  margin-top: 50px;
   margin-bottom: 0;
 
 }
 
-.instructions {
-  font-size: 15px;
-  color: #EEEEEE;
-  margin-left: 20px;
-  margin-right: 20px;
-}
 /*
 .error-messages {
   color: #525252;
@@ -58,7 +52,7 @@ h3 {
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 0;
-  margin-top: 0;
+  margin-top: 20px;
 }
 .error-messages-values {
   font-size: 15px;
@@ -68,7 +62,7 @@ h3 {
   margin-top: 0;
 }
 .score-div {
-  margin-top: 30px;
+  margin-top: 60px;
 }
 
 .usernumber {
@@ -116,20 +110,26 @@ button {
   -moz-appearance: none;
   appearance: none;
 }
-
-.bottombuttons {
-  width: 40px;
-  height: 40px;
-  border-radius: 40px;
-  font-size: 25px;
-  border-width: 0;
-}
-
 button:active {
   color: #fff;
   background-color: #AAAAAA;
   border-color: #CCC;
 }
+.bottombuttons {
+  width: 40px;
+  height: 40px;
+  border-radius: 2px;
+  font-size: 25px;
+  text-align: center;
+  border-width: 0;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.bottombuttons:active {
+  background-color: #525252;
+}
+
+
 
 .operationbuttons {
   margin: 8px 4px 8px 4px;
@@ -229,5 +229,34 @@ button:active {
 }
 
 .bottom-button-container {
-  padding-top: 10%
+  margin-top: 40px;
+}
+
+.game-modes {
+  color: #303030;
+  background-color: #525252;
+  width: 49%;
+  height: 36px;
+  border: 1px;
+  border-style: solid;
+  border-radius: 0;
+  border-top: 2px;
+  border-left: 2px;
+  border-right: 2px;
+  border-color: #303030;
+  font-weight: 400;
+  font-size: 14px;
+  margin-top: 45px;
+}
+
+.game-modes:active {
+  background-color: #525252;
+}
+.daily-6 {
+  border-color: #AADDAA;
+  color: #AADDAA;
+}
+
+.daily-ffa {
+  border-color: #303030;
 }
