@@ -135,7 +135,6 @@ button:active {
 }
 
 .game-modes {
-  color: #303030;
   background-color: #525252;
   width: 48%;
   height: 36px;
@@ -161,6 +160,7 @@ button:active {
 
 .daily-ffa {
   border-color: #303030;
+  color: #303030;
 }
 
 .operationbars {}
@@ -196,6 +196,7 @@ button:active {
   text-align: center;
   padding: 20px;
   position: relative;
+  overflow-y: auto;
 }
 
 .close-info {
@@ -252,7 +253,7 @@ button:active {
 }
 
 .HTPtextcontent {
-  text-align: left;
+  text-align: center;
   font-size: 14px;
 }
 
