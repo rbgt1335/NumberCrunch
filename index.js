@@ -10288,26 +10288,26 @@ document.querySelectorAll(".operationbuttons")[6].addEventListener("click", func
 
 });
 document.querySelectorAll(".operationbuttons")[7].addEventListener("click", function() {
+  console.log(localStorage);
   if (localStorage.getItem("mode") == "daily-6") {
     if (Math.sqrt(parseInt(localStorage.getItem("usernumber"))) % 1 == 0) {
       localStorage.setItem("usernumber", Math.sqrt(parseInt(localStorage.getItem("usernumber"))));
       madeValidMove();
       updateMoves(-21);
     } else {
-      nonRootable(parseInt(localStorage.getItem("usernumber"));
+      nonRootable(parseInt(localStorage.getItem("usernumber")));
     }
-    updateCenterNumber()
+    updateCenterNumber();
   } else {
     if (Math.sqrt(parseInt(localStorage.getItem("usernumberf"))) % 1 == 0) {
       localStorage.setItem("usernumberf", Math.sqrt(parseInt(localStorage.getItem("usernumberf"))));
       madeValidMove();
       updateMoves(-21);
     } else {
-      nonRootable(parseInt(localStorage.getItem("usernumberf"));
+      nonRootable(parseInt(localStorage.getItem("usernumberf")));
     }
-    updateCenterNumber()
+    updateCenterNumber();
   }
-
 });
 
 /*math buttons on or off based on if you've gotten the winning number*/
@@ -10344,7 +10344,6 @@ document.querySelectorAll('.open-info')[0].addEventListener('click', function() 
 
 document.querySelector('.tryagain-button').addEventListener('click', function() {
   if (localStorage.getItem("mode") == "daily-6") {
-    document.querySelectorAll('.stats-bottom-buttons')[0].style.display = "none";
     document.querySelectorAll('.stats-bottom-buttons')[1].style.display = "none";
     arr = getpuzzle(puzzledaynumber - 1);
     targetnumber = arr[1];
@@ -10377,7 +10376,6 @@ document.querySelector('.tryagain-button').addEventListener('click', function() 
     madeValidMove();
     console.log(localStorage);
   } else {
-    document.querySelectorAll('.stats-bottom-buttons')[0].style.display = "none";
     document.querySelectorAll('.stats-bottom-buttons')[1].style.display = "none";
     arrf = getpuzzlef(puzzledaynumber - 1);
     targetnumberf = arrf[1];
@@ -10439,7 +10437,6 @@ function winning() {
     for (let i = 0; i < 8; i++) {
       document.querySelectorAll(".operationbuttons")[i].disabled = true;
     }
-    document.querySelectorAll('.stats-bottom-buttons')[0].style.display = "inline";
     document.querySelectorAll('.stats-bottom-buttons')[1].style.display = "inline";
   } else {
     if (localStorage.getItem("user-game-historyf").split(",")[puzzledaynumber - 1] != "1") {
@@ -10465,7 +10462,6 @@ function winning() {
     for (let i = 0; i < 8; i++) {
       document.querySelectorAll(".operationbuttons")[i].disabled = true;
     }
-    document.querySelectorAll('.stats-bottom-buttons')[0].style.display = "inline";
     document.querySelectorAll('.stats-bottom-buttons')[1].style.display = "inline";
   }
 }
@@ -10521,7 +10517,7 @@ function tooSmallError() {
 }
 
 function nonRootable(num) {
-  let x = lowerSquare(num);
+  var x = lowerSquare(num);
   document.querySelectorAll(".error-messages")[0].style.color = "#FFA81C";
   document.querySelectorAll(".error-messages")[0].innerHTML = "Nearest perfect squares:";
   document.querySelectorAll(".error-messages-values")[0].style.color = "#FFA81C";
@@ -10595,7 +10591,6 @@ function gameStreaks(array) {
 
 if (localStorage.getItem("mode") == "daily-6") {
   if (parseInt(localStorage.getItem("usernumber")) == targetnumber) {
-    document.querySelectorAll('.stats-bottom-buttons')[0].style.display = "inline";
     document.querySelectorAll('.stats-bottom-buttons')[1].style.display = "inline";
     madeValidMove();
     winning();
@@ -10605,7 +10600,6 @@ if (localStorage.getItem("mode") == "daily-6") {
   if (parseInt(localStorage.getItem("usernumberf")) == targetnumberf) {
     madeValidMove();
     winning();
-    document.querySelectorAll('.stats-bottom-buttons')[0].style.display = "inline";
     document.querySelectorAll('.stats-bottom-buttons')[1].style.display = "inline";
     document.querySelector('.bg-modal-stats').style.display = "flex";
   }
@@ -10626,14 +10620,12 @@ document.querySelector(".daily-ffa").addEventListener("click", function() {
   if (parseInt(localStorage.getItem("usernumberf")) == targetnumberf) {
     madeValidMove();
     winning();
-    document.querySelectorAll('.stats-bottom-buttons')[0].style.display = "inline";
     document.querySelectorAll('.stats-bottom-buttons')[1].style.display = "inline";
     document.querySelector('.bg-modal-stats').style.display = "flex";
   } else {
     for (let i = 0; i < 8; i++) {
       document.querySelectorAll(".operationbuttons")[i].disabled = false;
     }
-    document.querySelectorAll('.stats-bottom-buttons')[0].style.display = "none";
     document.querySelectorAll('.stats-bottom-buttons')[1].style.display = "none";
     loadDailyData();
     for (let i = 0; i < 4; i++) {
@@ -10652,7 +10644,6 @@ document.querySelector(".daily-6").addEventListener("click", function() {
   localStorage.setItem("mode", "daily-6");
   loadDailyData();
   if (parseInt(localStorage.getItem("usernumber")) == targetnumber) {
-    document.querySelectorAll('.stats-bottom-buttons')[0].style.display = "inline";
     document.querySelectorAll('.stats-bottom-buttons')[1].style.display = "inline";
     madeValidMove();
     winning();
@@ -10661,7 +10652,6 @@ document.querySelector(".daily-6").addEventListener("click", function() {
     for (let i = 0; i < 8; i++) {
       document.querySelectorAll(".operationbuttons")[i].disabled = false;
     }
-    document.querySelectorAll('.stats-bottom-buttons')[0].style.display = "none";
     document.querySelectorAll('.stats-bottom-buttons')[1].style.display = "none";
     for (let i = 0; i < 4; i++) {
       document.querySelectorAll(".statnumber")[i].style.color = "#90DB89";
