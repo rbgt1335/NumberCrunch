@@ -10673,8 +10673,9 @@ document.querySelector(".share-button").addEventListener("click", function() {
   if (localStorage.getItem("mode") == "daily-6") {
     try {
       navigator.share({
-        title: "NumberCrunch Day 5",
-        url: "https://www.nytimes.com/games/wordle/index.html"
+        title: "NumberCrunch",
+        text: "NumberCrunch Day "+String(puzzledaynumber)+":\nDaily 6 solved in "+String(localStorage.getItem("daily-best-score")) + " moves",
+        url: ""
       });
       console.log("Data was shared successfully");
     } catch (err) {
@@ -10683,8 +10684,9 @@ document.querySelector(".share-button").addEventListener("click", function() {
   } else {
     try {
       navigator.share({
-        title: "NumberCrunch Day 5",
-        url: "https://www.nytimes.com/games/wordle/index.html"
+        title: "NumberCrunch",
+        text: "NumberCrunch Day "+String(puzzledaynumber)+":\nDaily Free For All solved in "+String(localStorage.getItem("daily-best-scoref")) + " moves",
+        url: ""
       });
       console.log("Data was shared successfully");
     } catch (err) {
