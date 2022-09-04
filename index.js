@@ -10674,7 +10674,7 @@ document.querySelector(".share-button").addEventListener("click", function() {
     try {
       navigator.share({
         title: "NumberCrunch",
-        text: "NumberCrunch Day "+String(puzzledaynumber)+":\nDaily 6 solved in "+String(localStorage.getItem("daily-best-score")) + " moves",
+        text: "NumberCrunch Day "+String(puzzledaynumber)+":\nDaily 6 solved in "+String(localStorage.getItem("daily-best-score")) + " moves.\n",
         url: ""
       });
       console.log("Data was shared successfully");
@@ -10685,7 +10685,7 @@ document.querySelector(".share-button").addEventListener("click", function() {
     try {
       navigator.share({
         title: "NumberCrunch",
-        text: "NumberCrunch Day "+String(puzzledaynumber)+":\nDaily Free For All solved in "+String(localStorage.getItem("daily-best-scoref")) + " moves",
+        text: "NumberCrunch Day "+String(puzzledaynumber)+":\nDaily Free For All solved in "+String(localStorage.getItem("daily-best-scoref")) + " moves.\n",
         url: ""
       });
       console.log("Data was shared successfully");
