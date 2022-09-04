@@ -10294,7 +10294,7 @@ document.querySelectorAll(".operationbuttons")[7].addEventListener("click", func
       madeValidMove();
       updateMoves(-21);
     } else {
-      nonRootable();
+      nonRootable(parseInt(localStorage.getItem("usernumber"));
     }
     updateCenterNumber()
   } else {
@@ -10303,7 +10303,7 @@ document.querySelectorAll(".operationbuttons")[7].addEventListener("click", func
       madeValidMove();
       updateMoves(-21);
     } else {
-      nonRootable();
+      nonRootable(parseInt(localStorage.getItem("usernumberf"));
     }
     updateCenterNumber()
   }
@@ -10520,8 +10520,8 @@ function tooSmallError() {
   shakeOnError();
 }
 
-function nonRootable() {
-  let x = lowerSquare(parseInt(localStorage.getItem("usernumber")))
+function nonRootable(num) {
+  let x = lowerSquare(num);
   document.querySelectorAll(".error-messages")[0].style.color = "#FFA81C";
   document.querySelectorAll(".error-messages")[0].innerHTML = "Nearest perfect squares:";
   document.querySelectorAll(".error-messages-values")[0].style.color = "#FFA81C";
