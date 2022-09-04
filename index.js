@@ -10671,20 +10671,25 @@ document.querySelector(".daily-6").addEventListener("click", function() {
 
 document.querySelector(".share-button").addEventListener("click", function() {
   if (localStorage.getItem("mode") == "daily-6") {
-    var elem = document.createElement("textarea");
-    elem.value = "NumberCrunch Day " + String(puzzledaynumber) + ":\nDaily 6 Solved in " + String(localStorage.getItem("daily-best-score")) + " moves";
-    document.body.appendChild(elem);
-    elem.select();
-    document.execCommand('copy');
-    document.body.removeChild(elem);
+    try {
+      navigator.share({
+        title: "NumberCrunch Day 5",
+        url: "https://www.nytimes.com/games/wordle/index.html"
+      });
+      console.log("Data was shared successfully");
+    } catch (err) {
+      console.error("Share failed:", err.message);
+    }
   } else {
-    var elem = document.createElement("textarea");
-    elem.value = "NumberCrunch Day " + String(puzzledaynumber) + ":\nFree For All solved in " +
-    String(localStorage.getItem("daily-best-scoref")) + " moves\n " ;
-    document.body.appendChild(elem);
-    elem.select();
-    document.execCommand('copy');
-    document.body.removeChild(elem);
+    try {
+      navigator.share({
+        title: "NumberCrunch Day 5",
+        url: "https://www.nytimes.com/games/wordle/index.html"
+      });
+      console.log("Data was shared successfully");
+    } catch (err) {
+      console.error("Share failed:", err.message);
+    }
   }
   document.querySelector(".share-button").innerHTML = "Copied";
 
