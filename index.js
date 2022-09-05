@@ -10396,7 +10396,13 @@ document.querySelector('.tryagain-button').addEventListener('click', function() 
     document.getElementById("usernumber").innerHTML = insertCommas(parseInt(localStorage.getItem("usernumberf")));
     madeValidMove();
   }
-
+  /*
+  document.querySelector('.close-ad').style.display = "none";
+  document.querySelector('.bg-modal-ads').style.display = "flex";
+  setTimeout(function() {
+    document.querySelector('.close-ad').style.display = "absolute";
+  },10000)
+  */
 })
 
 /*update info upon win*/
@@ -10669,7 +10675,7 @@ document.querySelector(".share-button").addEventListener("click", function() {
       navigator.share({
         title: "NumberCrunch",
         text: "NumberCrunch Day " + String(puzzledaynumber) + ":\nDaily 6 solved in " + String(localStorage.getItem("daily-best-score")) + " moves.\n",
-        url: ""
+        url: "https://numbercrunch.app"
       });
       console.log("Data was shared successfully");
     } catch (err) {
@@ -10680,7 +10686,7 @@ document.querySelector(".share-button").addEventListener("click", function() {
       navigator.share({
         title: "NumberCrunch",
         text: "NumberCrunch Day " + String(puzzledaynumber) + ":\nDaily Free For All solved in " + String(localStorage.getItem("daily-best-scoref")) + " moves.\n",
-        url: ""
+        url: "https://numbercrunch.app"
       });
       console.log("Data was shared successfully");
     } catch (err) {
