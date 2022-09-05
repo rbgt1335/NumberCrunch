@@ -10675,7 +10675,7 @@ document.querySelector(".share-button").addEventListener("click", function() {
       navigator.share({
         title: "NumberCrunch",
         text: "NumberCrunch Day " + String(puzzledaynumber) + ":\nDaily 6 solved in " + String(localStorage.getItem("daily-best-score")) + " moves.",
-        url: "https://numbercrunch.app"
+        url: ""
       });
       console.log("Data was shared successfully");
     } catch (err) {
@@ -10686,7 +10686,7 @@ document.querySelector(".share-button").addEventListener("click", function() {
       navigator.share({
         title: "NumberCrunch",
         text: "NumberCrunch Day " + String(puzzledaynumber) + ":\nDaily Free For All solved in " + String(localStorage.getItem("daily-best-scoref")) + " moves.",
-        url: "https://numbercrunch.app"
+        url: ""
       });
       console.log("Data was shared successfully");
     } catch (err) {
