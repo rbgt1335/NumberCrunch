@@ -1,11 +1,11 @@
 var maxval = 1000000000;
-var deltaTime = 1000 * 60 * 60 * 24;
+var deltaTime = 1000 * 60 * 60 *24;
 const backdate = new Date('September 4, 2022, 00:00:00');
 
 var datenow = Date.now();
 const puzzledaynumber = Math.floor(((datenow - backdate) / (deltaTime))) + 1;
 var timetilnew = backdate;
-timetilnew.setTime(backdate.getTime() + ((puzzledaynumber) * deltaTime) - Date.now());
+timetilnew.setTime(backdate.getTime() + ((puzzledaynumber) * deltaTime+3000) - Date.now());
 
 function getpuzzle(x) {
   const meter = [
@@ -5013,7 +5013,7 @@ function getpuzzle(x) {
 
   return [meter[x][0], meter[x][1]];
 }
-arr = getpuzzle(puzzledaynumber - 1);
+var arr = getpuzzle(puzzledaynumber - 1);
 
 function getpuzzlef(x) {
   const meterf = [
@@ -10021,14 +10021,13 @@ function getpuzzlef(x) {
 
   return [meterf[x][0], meterf[x][1]];
 }
-arrf = getpuzzlef(puzzledaynumber - 1);
+var arrf = getpuzzlef(puzzledaynumber - 1);
 var targetnumber = parseInt(arr[1]);
 var targetnumberf = parseInt(arrf[1]);
 
 
 function initializeLocalStorage() {
 
-  /*local storage for daily 6*/
   localStorage.setItem("mode", "daily-6");
   localStorage.setItem("user-games-won", "0");
   localStorage.setItem("user-daily-streak", "0");
@@ -10051,13 +10050,30 @@ if (localStorage.getItem("mode") === null) {
   initializeLocalStorage();
 }
 
+
+if (localStorage.getItem("user-game-history").split(",").length < puzzledaynumber) {
+  const gamearray = localStorage.getItem("user-game-history").split(",");
+  const gamearrayf = localStorage.getItem("user-game-historyf").split(",");
+  while (gamearray.length < puzzledaynumber) {
+    gamearrayf.push("0");
+    gamearray.push("0");
+  }
+  localStorage.setItem("user-game-history", gamearray.toString());
+  localStorage.setItem("user-game-historyf", gamearrayf.toString());
+  localStorage.setItem("daily-best-score", "---");
+  localStorage.setItem("userscore", "0");
+  localStorage.setItem("user-moves", "");
+  localStorage.setItem("usernumber", arr[0]);
+  localStorage.setItem("daily-best-scoref", "---");
+  localStorage.setItem("userscoref", "0");
+  localStorage.setItem("user-movesf", "");
+  localStorage.setItem("usernumberf", arrf[0]);
+}
+
+
 setTimeout(function() {
-  console.log(timetilnew.getTime());
   window.location.reload();
 }, timetilnew);
-
-console.log(puzzledaynumber);
-console.log(localStorage);
 
 function lowerSquare(num) {
   return [(Math.floor(Math.sqrt(num))) ** 2, (Math.floor(Math.sqrt(num)) + 1) ** 2]
@@ -10074,8 +10090,8 @@ function loadDailyData() {
     document.querySelector("h3").style.color = "#90DB8F";
     document.querySelector(".score").style.color = "#95DD95";
     document.querySelectorAll(".score")[0].innerHTML = "Moves: " + localStorage.getItem("userscore");
-    document.getElementById("Target").innerHTML = "Target: " + insertCommas(targetnumber);
-    document.getElementById("usernumber").innerHTML = insertCommas((parseInt(localStorage.getItem("usernumber"))));
+    document.getElementById("Target").innerHTML = "Target: " + insertCommas(parseInt(targetnumber));
+    document.getElementById("usernumber").innerHTML = insertCommas(parseInt(localStorage.getItem("usernumber")));
     document.querySelectorAll(".daily-best-score")[0].innerHTML = localStorage.getItem("daily-best-score");
     var array = gameStreaks(localStorage.getItem("user-game-history").split(","));
     localStorage.setItem("user-games-won", array[0]);
@@ -10087,7 +10103,11 @@ function loadDailyData() {
     for (let i = 0; i < 4; i++) {
       document.querySelectorAll(".statnumber")[i].style.color = "#90DB89";
     }
-
+    if (localStorage.getItem("daily-best-score") != "---") {
+      document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "inline";
+    } else {
+      document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "none";
+    }
   } else {
     document.querySelector(".daily-ffa").style.color = "#ED5B5B";
     document.querySelector(".daily-ffa").style.borderColor = "#ED5B5B";
@@ -10096,8 +10116,8 @@ function loadDailyData() {
     document.querySelector(".daily-6").style.color = "#303030";
     document.querySelector(".daily-6").style.borderColor = "#303030";
     document.querySelectorAll(".score")[0].innerHTML = "Moves: " + localStorage.getItem("userscoref");
-    document.getElementById("Target").innerHTML = "Target: " + insertCommas(targetnumberf);
-    document.getElementById("usernumber").innerHTML = insertCommas((parseInt(localStorage.getItem("usernumberf"))));
+    document.getElementById("Target").innerHTML = "Target: " + insertCommas(parseInt(targetnumberf));
+    document.getElementById("usernumber").innerHTML = insertCommas(parseInt(localStorage.getItem("usernumberf")));
     document.querySelectorAll(".daily-best-score")[0].innerHTML = localStorage.getItem("daily-best-scoref");
     var arrayf = gameStreaks(localStorage.getItem("user-game-historyf").split(","));
     localStorage.setItem("user-games-wonf", arrayf[0]);
@@ -10107,27 +10127,13 @@ function loadDailyData() {
     document.querySelector('.daily-streak').innerHTML = localStorage.getItem("user-daily-streakf");
     document.querySelector('.longest-streak').innerHTML = localStorage.getItem("user-longest-streakf");
     for (let i = 0; i < 4; i++) {
-      document.querySelectorAll(".statnumber")[i].style.color = "#FF4444";
+      document.querySelectorAll(".statnumber")[i].style.color = "#D22B2B";
     }
-  }
-
-  if (localStorage.getItem("user-game-history").split(",").length < puzzledaynumber) {
-    const gamearray = localStorage.getItem("user-game-history").split(",");
-    const gamearrayf = localStorage.getItem("user-game-historyf").split(",");
-    while (gamearray.length < puzzledaynumber) {
-      gamearrayf.push("0");
-      gamearray.push("0");
+    if (localStorage.getItem("daily-best-score") != "---") {
+      document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "inline";
+    } else {
+      document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "none";
     }
-    localStorage.setItem("user-game-history", gamearray.toString());
-    localStorage.setItem("user-game-historyf", gamearrayf.toString());
-    localStorage.setItem("daily-best-score", "---");
-    localStorage.setItem("userscore", "0");
-    localStorage.setItem("user-moves", "");
-    localStorage.setItem("usernumber", insertCommas(arr[0].toString()));
-    localStorage.setItem("daily-best-scoref", "---");
-    localStorage.setItem("userscoref", "0");
-    localStorage.setItem("user-movesf", "");
-    localStorage.setItem("usernumberf", insertCommas(parseInt(arrf[0]).toString()));
   }
 }
 loadDailyData();
@@ -10288,7 +10294,6 @@ document.querySelectorAll(".operationbuttons")[6].addEventListener("click", func
 
 });
 document.querySelectorAll(".operationbuttons")[7].addEventListener("click", function() {
-  console.log(localStorage);
   if (localStorage.getItem("mode") == "daily-6") {
     if (Math.sqrt(parseInt(localStorage.getItem("usernumber"))) % 1 == 0) {
       localStorage.setItem("usernumber", Math.sqrt(parseInt(localStorage.getItem("usernumber"))));
@@ -10311,21 +10316,8 @@ document.querySelectorAll(".operationbuttons")[7].addEventListener("click", func
 });
 
 /*math buttons on or off based on if you've gotten the winning number*/
-if (localStorage.getItem("mode") == "daily-6") {
-  if (parseInt(localStorage.getItem("usernumber")) == targetnumber) {
-    for (let i = 0; i < 8; i++) {
-      document.querySelectorAll(".operationbuttons")[i].disabled = true;
-    }
-  }
-} else {
-  if (parseInt(localStorage.getItem("usernumberf")) == targetnumberf) {
-    for (let i = 0; i < 8; i++) {
-      document.querySelectorAll(".operationbuttons")[i].disabled = true;
-    }
-  }
-}
 
-/*bottom button functionality */
+/*activate stat and settings buttons*/
 for (let i = 0; i < 2; i++) {
   document.querySelectorAll('.close-stats')[i].addEventListener('click', function() {
     document.querySelector('.bg-modal-stats').style.display = "none";
@@ -10344,10 +10336,9 @@ document.querySelectorAll('.open-info')[0].addEventListener('click', function() 
 
 document.querySelector('.tryagain-button').addEventListener('click', function() {
   if (localStorage.getItem("mode") == "daily-6") {
-    document.querySelectorAll('.stats-bottom-buttons')[1].style.display = "none";
-    arr = getpuzzle(puzzledaynumber - 1);
+    var arr = getpuzzle(puzzledaynumber - 1);
     targetnumber = arr[1];
-    document.getElementById("Target").innerHTML = "Target: " + insertCommas(targetnumber);
+    document.getElementById("Target").innerHTML = "Target: " + insertCommas(parseInt(targetnumber));
     if (localStorage.getItem("user-game-history").split(",").length < puzzledaynumber) {
       const gamearray = localStorage.getItem("user-game-history").split(",");
       while (gamearray.length < puzzledaynumber) {
@@ -10374,12 +10365,10 @@ document.querySelector('.tryagain-button').addEventListener('click', function() 
     localStorage.setItem("usernumber", String(arr[0]));
     document.getElementById("usernumber").innerHTML = insertCommas(parseInt(localStorage.getItem("usernumber")));
     madeValidMove();
-    console.log(localStorage);
   } else {
-    document.querySelectorAll('.stats-bottom-buttons')[1].style.display = "none";
-    arrf = getpuzzlef(puzzledaynumber - 1);
+    var arrf = getpuzzlef(puzzledaynumber - 1);
     targetnumberf = arrf[1];
-    document.getElementById("Target").innerHTML = "Target: " + insertCommas(targetnumberf);
+    document.getElementById("Target").innerHTML = "Target: " + insertCommas(parseInt(targetnumberf));
     if (localStorage.getItem("user-game-historyf").split(",").length < puzzledaynumber) {
       const gamearrayf = localStorage.getItem("user-game-historyf").split(",");
       while (gamearrayf.length < puzzledaynumber) {
@@ -10406,7 +10395,6 @@ document.querySelector('.tryagain-button').addEventListener('click', function() 
     localStorage.setItem("usernumberf", String(arrf[0]));
     document.getElementById("usernumber").innerHTML = insertCommas(parseInt(localStorage.getItem("usernumberf")));
     madeValidMove();
-    console.log(localStorage);
   }
 
 })
@@ -10437,7 +10425,7 @@ function winning() {
     for (let i = 0; i < 8; i++) {
       document.querySelectorAll(".operationbuttons")[i].disabled = true;
     }
-    document.querySelectorAll('.stats-bottom-buttons')[1].style.display = "inline";
+    document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "inline";
   } else {
     if (localStorage.getItem("user-game-historyf").split(",")[puzzledaynumber - 1] != "1") {
       const gamearrayf = localStorage.getItem("user-game-historyf").split(",");
@@ -10462,7 +10450,7 @@ function winning() {
     for (let i = 0; i < 8; i++) {
       document.querySelectorAll(".operationbuttons")[i].disabled = true;
     }
-    document.querySelectorAll('.stats-bottom-buttons')[1].style.display = "inline";
+    document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "inline";
   }
 }
 
@@ -10473,13 +10461,11 @@ function updateMoves(x) {
     gamearray.push(x);
     localStorage.setItem("user-moves", gamearray.toString());
     localStorage.setItem("userscore", gamearray.length - 1);
-    console.log(gamearray);
   } else {
     const gamearrayf = localStorage.getItem("user-movesf").split(",");
     gamearrayf.push(x);
     localStorage.setItem("user-movesf", gamearrayf.toString());
     localStorage.setItem("userscoref", gamearrayf.length - 1);
-    console.log(gamearrayf);
   }
 
 }
@@ -10539,14 +10525,18 @@ function updateCenterNumber() {
     document.querySelectorAll(".score")[0].innerHTML = "Moves: " + localStorage.getItem("userscore");
     if (parseInt(localStorage.getItem("usernumber")) == targetnumber) {
       winning();
-      document.querySelector('.bg-modal-stats').style.display = "flex";
+      setTimeout(function() {
+        document.querySelector('.bg-modal-stats').style.display = "flex";
+      }, 800)
     }
   } else {
     document.getElementById("usernumber").innerHTML = insertCommas(parseInt(localStorage.getItem("usernumberf")));
     document.querySelectorAll(".score")[0].innerHTML = "Moves: " + localStorage.getItem("userscoref");
     if (parseInt(localStorage.getItem("usernumberf")) == targetnumberf) {
       winning();
-      document.querySelector('.bg-modal-stats').style.display = "flex";
+      setTimeout(function() {
+        document.querySelector('.bg-modal-stats').style.display = "flex";
+      }, 800)
     }
   }
 }
@@ -10591,16 +10581,20 @@ function gameStreaks(array) {
 
 if (localStorage.getItem("mode") == "daily-6") {
   if (parseInt(localStorage.getItem("usernumber")) == targetnumber) {
-    document.querySelectorAll('.stats-bottom-buttons')[1].style.display = "inline";
     madeValidMove();
     winning();
+    for (let i = 0; i < 8; i++) {
+      document.querySelectorAll(".operationbuttons")[i].disabled = true;
+    }
     document.querySelector('.bg-modal-stats').style.display = "flex";
   }
 } else {
   if (parseInt(localStorage.getItem("usernumberf")) == targetnumberf) {
     madeValidMove();
     winning();
-    document.querySelectorAll('.stats-bottom-buttons')[1].style.display = "inline";
+    for (let i = 0; i < 8; i++) {
+      document.querySelectorAll(".operationbuttons")[i].disabled = true;
+    }
     document.querySelector('.bg-modal-stats').style.display = "flex";
   }
 }
@@ -10620,17 +10614,22 @@ document.querySelector(".daily-ffa").addEventListener("click", function() {
   if (parseInt(localStorage.getItem("usernumberf")) == targetnumberf) {
     madeValidMove();
     winning();
-    document.querySelectorAll('.stats-bottom-buttons')[1].style.display = "inline";
-    document.querySelector('.bg-modal-stats').style.display = "flex";
+    setTimeout(function() {
+      document.querySelector('.bg-modal-stats').style.display = "flex";
+    }, 800)
   } else {
     for (let i = 0; i < 8; i++) {
       document.querySelectorAll(".operationbuttons")[i].disabled = false;
     }
-    document.querySelectorAll('.stats-bottom-buttons')[1].style.display = "none";
     loadDailyData();
     for (let i = 0; i < 4; i++) {
-      document.querySelectorAll(".statnumber")[i].style.color = "#FF4444";
+      document.querySelectorAll(".statnumber")[i].style.color = "#D22B2B";
     }
+  }
+  if (localStorage.getItem("daily-best-scoref") != "---") {
+    document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "inline";
+  } else {
+    document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "none";
   }
 })
 
@@ -10644,18 +10643,23 @@ document.querySelector(".daily-6").addEventListener("click", function() {
   localStorage.setItem("mode", "daily-6");
   loadDailyData();
   if (parseInt(localStorage.getItem("usernumber")) == targetnumber) {
-    document.querySelectorAll('.stats-bottom-buttons')[1].style.display = "inline";
     madeValidMove();
     winning();
-    document.querySelector('.bg-modal-stats').style.display = "flex";
+    setTimeout(function() {
+      document.querySelector('.bg-modal-stats').style.display = "flex";
+    }, 800)
   } else {
     for (let i = 0; i < 8; i++) {
       document.querySelectorAll(".operationbuttons")[i].disabled = false;
     }
-    document.querySelectorAll('.stats-bottom-buttons')[1].style.display = "none";
     for (let i = 0; i < 4; i++) {
       document.querySelectorAll(".statnumber")[i].style.color = "#90DB89";
     }
+  }
+  if (localStorage.getItem("daily-best-score") != "---") {
+    document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "inline";
+  } else {
+    document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "none";
   }
 })
 
@@ -10664,7 +10668,7 @@ document.querySelector(".share-button").addEventListener("click", function() {
     try {
       navigator.share({
         title: "NumberCrunch",
-        text: "NumberCrunch Day "+String(puzzledaynumber)+":\nDaily 6 solved in "+String(localStorage.getItem("daily-best-score")) + " moves.\n",
+        text: "NumberCrunch Day " + String(puzzledaynumber) + ":\nDaily 6 solved in " + String(localStorage.getItem("daily-best-score")) + " moves.\n",
         url: ""
       });
       console.log("Data was shared successfully");
@@ -10675,7 +10679,7 @@ document.querySelector(".share-button").addEventListener("click", function() {
     try {
       navigator.share({
         title: "NumberCrunch",
-        text: "NumberCrunch Day "+String(puzzledaynumber)+":\nDaily Free For All solved in "+String(localStorage.getItem("daily-best-scoref")) + " moves.\n",
+        text: "NumberCrunch Day " + String(puzzledaynumber) + ":\nDaily Free For All solved in " + String(localStorage.getItem("daily-best-scoref")) + " moves.\n",
         url: ""
       });
       console.log("Data was shared successfully");
