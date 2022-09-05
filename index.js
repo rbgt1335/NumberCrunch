@@ -10673,9 +10673,9 @@ document.querySelector(".share-button").addEventListener("click", function() {
   if (localStorage.getItem("mode") == "daily-6") {
     try {
       navigator.share({
-        url: "https://numbercrunch.app",
         title: "NumberCrunch",
-        text: "NumberCrunch Day " + String(puzzledaynumber) + ":\nDaily 6 solved in " + String(localStorage.getItem("daily-best-score")) + " moves."
+        text: "NumberCrunch Day " + String(puzzledaynumber) + ":\nDaily 6 solved in " + String(localStorage.getItem("daily-best-score")) + " moves.",
+        url: "https://numbercrunch.app"
       });
       console.log("Data was shared successfully");
     } catch (err) {
@@ -10684,9 +10684,9 @@ document.querySelector(".share-button").addEventListener("click", function() {
   } else {
     try {
       navigator.share({
-        url: "https://numbercrunch.app",
         title: "NumberCrunch",
-        text: "NumberCrunch Day " + String(puzzledaynumber) + ":\nDaily Free For All solved in " + String(localStorage.getItem("daily-best-scoref")) + " moves."
+        text: "NumberCrunch Day " + String(puzzledaynumber) + ":\nDaily Free For All solved in " + String(localStorage.getItem("daily-best-scoref")) + " moves.",
+        url: "https://numbercrunch.app"
       });
       console.log("Data was shared successfully");
     } catch (err) {
