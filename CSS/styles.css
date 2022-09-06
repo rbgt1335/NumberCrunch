@@ -11,6 +11,10 @@ body {
   font-size: 15px;
 }
 
+body.block {
+  pointer-events: none;
+}
+
 h1 {
   margin-top: 24px;
   font-weight: bold;
