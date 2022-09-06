@@ -10127,7 +10127,7 @@ function loadDailyData() {
     document.querySelector('.daily-streak').innerHTML = localStorage.getItem("user-daily-streakf");
     document.querySelector('.longest-streak').innerHTML = localStorage.getItem("user-longest-streakf");
     for (let i = 0; i < 4; i++) {
-      document.querySelectorAll(".statnumber")[i].style.color = "#D22B2B";
+      document.querySelectorAll(".statnumber")[i].style.color = "#E22B2B";
     }
     if (localStorage.getItem("daily-best-score") != "---") {
       document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "inline";
@@ -10629,7 +10629,7 @@ document.querySelector(".daily-ffa").addEventListener("click", function() {
     }
     loadDailyData();
     for (let i = 0; i < 4; i++) {
-      document.querySelectorAll(".statnumber")[i].style.color = "#D22B2B";
+      document.querySelectorAll(".statnumber")[i].style.color = "#E22B2B";
     }
   }
   if (localStorage.getItem("daily-best-scoref") != "---") {
@@ -10674,8 +10674,8 @@ document.querySelector(".share-button").addEventListener("click", function() {
     try {
       navigator.share({
         title: "NumberCrunch",
-        text: "NumberCrunch Day " + String(puzzledaynumber) + ":\nDaily 6 solved in " + String(localStorage.getItem("daily-best-score")) + " moves.",
-        url: ""
+        text: "NumberCrunch Day " + String(puzzledaynumber) + ":\nI solved The Daily 6 solved in " + String(localStorage.getItem("daily-best-score")) + " moves!",
+        url: "https://numbercrunch.app"
       });
       console.log("Data was shared successfully");
     } catch (err) {
@@ -10685,8 +10685,8 @@ document.querySelector(".share-button").addEventListener("click", function() {
     try {
       navigator.share({
         title: "NumberCrunch",
-        text: "NumberCrunch Day " + String(puzzledaynumber) + ":\nDaily Free For All solved in " + String(localStorage.getItem("daily-best-scoref")) + " moves.",
-        url: ""
+        text: "NumberCrunch Day " + String(puzzledaynumber) + ":\nI solved The Daily Free For All solved in " + String(localStorage.getItem("daily-best-scoref")) + " moves!",
+        url: "https://numbercrunch.app"
       });
       console.log("Data was shared successfully");
     } catch (err) {
