@@ -1676,7 +1676,7 @@ document.querySelector(".share-button").addEventListener("click", function() {
     try {
       navigator.share({
         title: "NumberCrunch",
-        text: "NumberCrunch Day " + String(puzzledaynumber) + ":\nI solved The Daily 6 solved in " + String(localStorage.getItem("daily-best-score")) + " moves!",
+        text: "NumberCrunch Day " + String(puzzledaynumber) + ":\nI solved The Daily 6 in " + String(localStorage.getItem("daily-best-score")) + " moves!",
         url: "https://numbercrunch.app"
       });
       console.log("Data was shared successfully");
@@ -1687,7 +1687,7 @@ document.querySelector(".share-button").addEventListener("click", function() {
     try {
       navigator.share({
         title: "NumberCrunch",
-        text: "NumberCrunch Day " + String(puzzledaynumber) + ":\nI solved The Daily Free For All solved in " + String(localStorage.getItem("daily-best-scoref")) + " moves!",
+        text: "NumberCrunch Day " + String(puzzledaynumber) + ":\nI solved The Dreadful 9 in " + String(localStorage.getItem("daily-best-scoref")) + " moves!",
         url: "https://numbercrunch.app"
       });
       console.log("Data was shared successfully");
