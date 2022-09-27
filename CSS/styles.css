@@ -28,7 +28,8 @@ h2 {
 }
 
 h3 {
-  font-size: 25px;
+  font-size: 28px;
+
 }
 
 .score {
@@ -61,14 +62,14 @@ h3 {
   }
 
   25% {
-    transform: translateX(3px);
+    transform: translateX(4px);
   }
 
   50% {
     transform: translateX(0px);
   }
   75% {
-    transform: translateX(-3px);
+    transform: translateX(-4px);
   }
   100% {
     transform: translateX(0);
@@ -96,6 +97,7 @@ button {
   -moz-appearance: none;
   appearance: none;
 }
+
 button:active {
   color: #fff;
   background-color: #AAAAAA;
@@ -109,27 +111,22 @@ button:active {
 .game-modes {
   color: #303030;
   background-color: #525252;
-  width: 49%;
+  width: 15%;
   height: 36px;
   border: 1px;
   border-style: solid;
   border-radius: 0;
   border-top: 2px;
-  border-left: 2px;
-  border-right: 2px;
+  border-left: 1px;
+  border-right: 1px;
   border-color: #303030;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 14px;
   margin-top: 30px;
+  -webkit-background-clip: text;
 }
-
 .game-modes:active {
   background-color: #525252;
-}
-.daily-6 {
-}
-
-.daily-ffa {
 }
 
 .bg-modal-stats {
