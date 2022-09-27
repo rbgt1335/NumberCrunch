@@ -11,6 +11,44 @@ function insertCommas(x) {
   return x.toLocaleString();
 }
 
+function bigGold() {
+  allscoresum=0
+  for (i=4; i<10; i++) {
+    if (localStorage.getItem(`user-game-history-${i}`)[puzzledaynumber - 1] != "1") {
+      allscoresum+=100
+    } else {
+      allscoresum+=parseInt(localStorage.getItem(`daily-best-score-${i}`))
+    }
+  }
+  if (allscoresum==39) {
+    document.querySelectorAll(".game-modes").forEach(function(item) {
+      item.setAttribute("style",
+    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
+    });
+    document.querySelectorAll(".bottombuttons").forEach(function(item) {
+      item.setAttribute("style",
+    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
+    });
+    document.querySelectorAll(".operationbuttons").forEach(function(item) {
+      item.setAttribute("style",
+    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
+    });
+    document.querySelector("h2").setAttribute("style",
+      "background-image: linear-gradient(to bottom, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; -webkit-background-clip:text;");
+      document.querySelector("h2").innerHTML = "Congratulations! You Aced Every Challenge!"
+    document.querySelector("h3").setAttribute("style",
+      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    document.querySelector("h1").setAttribute("style",
+      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    document.querySelector(".score").setAttribute("style",
+      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    for (let i = 0; i < 4; i++) {
+      document.querySelectorAll(".statnumber")[i].setAttribute("style",
+        "background-image: linear-gradient(to top, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    }
+  }
+}
+
 setTimeout(function() {
   window.location.reload();
 }, timetilnew);
@@ -302,41 +340,7 @@ function winning() {
     document.querySelectorAll(".operationbuttons")[i].disabled = true;
   }
   document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "inline";
-  allscoresum=0
-  for (i=4; i<10; i++) {
-    if (localStorage.getItem(`user-game-history-${i}`)[puzzledaynumber - 1] != "1") {
-      allscoresum+=100
-    } else {
-      allscoresum+=parseInt(localStorage.getItem(`daily-best-score-${i}`))
-    }
-  }
-  if (allscoresum==39) {
-    document.querySelectorAll(".game-modes").forEach(function(item) {
-      item.setAttribute("style",
-    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
-    });
-    document.querySelectorAll(".bottombuttons").forEach(function(item) {
-      item.setAttribute("style",
-    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
-    });
-    document.querySelectorAll(".operationbuttons").forEach(function(item) {
-      item.setAttribute("style",
-    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
-    });
-    document.querySelector("h2").setAttribute("style",
-      "background-image: linear-gradient(to bottom, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; -webkit-background-clip:text;");
-      document.querySelector("h2").innerHTML = "Congratulations! You Aced Every Challenge!"
-    document.querySelector("h3").setAttribute("style",
-      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
-    document.querySelector("h1").setAttribute("style",
-      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
-    document.querySelector(".score").setAttribute("style",
-      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
-    for (let i = 0; i < 4; i++) {
-      document.querySelectorAll(".statnumber")[i].setAttribute("style",
-        "background-image: linear-gradient(to top, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
-    }
-  }
+  bigGold();
   console.log(allscoresum);
 }
 /*update moves list and check for inverse operations*/
@@ -475,40 +479,7 @@ document.querySelector(".daily-4").addEventListener("click", function() {
   } else {
     document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "none";
   }
-  allscoresum=0
-  for (i=4; i<10; i++) {
-    if (localStorage.getItem(`user-game-history-${i}`)[puzzledaynumber - 1] != "1") {
-      allscoresum+=100
-    } else {
-      allscoresum+=parseInt(localStorage.getItem(`daily-best-score-${i}`))
-    }
-  }
-  if (allscoresum==39) {
-    document.querySelectorAll(".game-modes").forEach(function(item) {
-      item.setAttribute("style",
-    "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
-    });
-    document.querySelectorAll(".bottombuttons").forEach(function(item) {
-      item.setAttribute("style",
-    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
-    });
-    document.querySelectorAll(".operationbuttons").forEach(function(item) {
-      item.setAttribute("style",
-    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
-    });
-    document.querySelector("h2").setAttribute("style",
-      "background-image: linear-gradient(to bottom, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; -webkit-background-clip:text;");
-    document.querySelector("h3").setAttribute("style",
-      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
-    document.querySelector("h1").setAttribute("style",
-      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
-    document.querySelector(".score").setAttribute("style",
-      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
-    for (let i = 0; i < 4; i++) {
-      document.querySelectorAll(".statnumber")[i].setAttribute("style",
-        "background-image: linear-gradient(to top, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
-    }
-  }
+  bigGold();
 })
 document.querySelector(".daily-5").addEventListener("click", function() {
   localStorage.setItem("mode", "daily-5");
@@ -527,40 +498,7 @@ document.querySelector(".daily-5").addEventListener("click", function() {
   } else {
     document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "none";
   }
-  allscoresum=0
-  for (i=4; i<10; i++) {
-    if (localStorage.getItem(`user-game-history-${i}`)[puzzledaynumber - 1] != "1") {
-      allscoresum+=100
-    } else {
-      allscoresum+=parseInt(localStorage.getItem(`daily-best-score-${i}`))
-    }
-  }
-  if (allscoresum==39) {
-    document.querySelectorAll(".game-modes").forEach(function(item) {
-      item.setAttribute("style",
-    "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
-    });
-    document.querySelectorAll(".bottombuttons").forEach(function(item) {
-      item.setAttribute("style",
-    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
-    });
-    document.querySelectorAll(".operationbuttons").forEach(function(item) {
-      item.setAttribute("style",
-    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
-    });
-    document.querySelector("h2").setAttribute("style",
-      "background-image: linear-gradient(to bottom, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; -webkit-background-clip:text;");
-    document.querySelector("h3").setAttribute("style",
-      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
-    document.querySelector("h1").setAttribute("style",
-      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
-    document.querySelector(".score").setAttribute("style",
-      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
-    for (let i = 0; i < 4; i++) {
-      document.querySelectorAll(".statnumber")[i].setAttribute("style",
-        "background-image: linear-gradient(to top, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
-    }
-  }
+  bigGold();
 })
 document.querySelector(".daily-6").addEventListener("click", function() {
   localStorage.setItem("mode", "daily-6");
@@ -579,40 +517,7 @@ document.querySelector(".daily-6").addEventListener("click", function() {
   } else {
     document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "none";
   }
-  allscoresum=0
-  for (i=4; i<10; i++) {
-    if (localStorage.getItem(`user-game-history-${i}`)[puzzledaynumber - 1] != "1") {
-      allscoresum+=100
-    } else {
-      allscoresum+=parseInt(localStorage.getItem(`daily-best-score-${i}`))
-    }
-  }
-  if (allscoresum==39) {
-    document.querySelectorAll(".game-modes").forEach(function(item) {
-      item.setAttribute("style",
-    "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
-    });
-    document.querySelectorAll(".bottombuttons").forEach(function(item) {
-      item.setAttribute("style",
-    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
-    });
-    document.querySelectorAll(".operationbuttons").forEach(function(item) {
-      item.setAttribute("style",
-    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
-    });
-    document.querySelector("h2").setAttribute("style",
-      "background-image: linear-gradient(to bottom, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; -webkit-background-clip:text;");
-    document.querySelector("h3").setAttribute("style",
-      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
-    document.querySelector("h1").setAttribute("style",
-      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
-    document.querySelector(".score").setAttribute("style",
-      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
-    for (let i = 0; i < 4; i++) {
-      document.querySelectorAll(".statnumber")[i].setAttribute("style",
-        "background-image: linear-gradient(to top, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
-    }
-  }
+  bigGold();
 })
 document.querySelector(".daily-7").addEventListener("click", function() {
   localStorage.setItem("mode", "daily-7");
@@ -631,40 +536,7 @@ document.querySelector(".daily-7").addEventListener("click", function() {
   } else {
     document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "none";
   }
-  allscoresum=0
-  for (i=4; i<10; i++) {
-    if (localStorage.getItem(`user-game-history-${i}`)[puzzledaynumber - 1] != "1") {
-      allscoresum+=100
-    } else {
-      allscoresum+=parseInt(localStorage.getItem(`daily-best-score-${i}`))
-    }
-  }
-  if (allscoresum==39) {
-    document.querySelectorAll(".game-modes").forEach(function(item) {
-      item.setAttribute("style",
-    "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
-    });
-    document.querySelectorAll(".bottombuttons").forEach(function(item) {
-      item.setAttribute("style",
-    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
-    });
-    document.querySelectorAll(".operationbuttons").forEach(function(item) {
-      item.setAttribute("style",
-    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
-    });
-    document.querySelector("h2").setAttribute("style",
-      "background-image: linear-gradient(to bottom, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; -webkit-background-clip:text;");
-    document.querySelector("h3").setAttribute("style",
-      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
-    document.querySelector("h1").setAttribute("style",
-      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
-    document.querySelector(".score").setAttribute("style",
-      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
-    for (let i = 0; i < 4; i++) {
-      document.querySelectorAll(".statnumber")[i].setAttribute("style",
-        "background-image: linear-gradient(to top, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
-    }
-  }
+  bigGold();
 })
 document.querySelector(".daily-8").addEventListener("click", function() {
   localStorage.setItem("mode", "daily-8");
@@ -683,40 +555,7 @@ document.querySelector(".daily-8").addEventListener("click", function() {
   } else {
     document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "none";
   }
-  allscoresum=0
-  for (i=4; i<10; i++) {
-    if (localStorage.getItem(`user-game-history-${i}`)[puzzledaynumber - 1] != "1") {
-      allscoresum+=100
-    } else {
-      allscoresum+=parseInt(localStorage.getItem(`daily-best-score-${i}`))
-    }
-  }
-  if (allscoresum==39) {
-    document.querySelectorAll(".game-modes").forEach(function(item) {
-      item.setAttribute("style",
-    "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
-    });
-    document.querySelectorAll(".bottombuttons").forEach(function(item) {
-      item.setAttribute("style",
-    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
-    });
-    document.querySelectorAll(".operationbuttons").forEach(function(item) {
-      item.setAttribute("style",
-    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
-    });
-    document.querySelector("h2").setAttribute("style",
-      "background-image: linear-gradient(to bottom, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; -webkit-background-clip:text;");
-    document.querySelector("h3").setAttribute("style",
-      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
-    document.querySelector("h1").setAttribute("style",
-      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
-    document.querySelector(".score").setAttribute("style",
-      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
-    for (let i = 0; i < 4; i++) {
-      document.querySelectorAll(".statnumber")[i].setAttribute("style",
-        "background-image: linear-gradient(to top, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
-    }
-  }
+  bigGold();
 })
 document.querySelector(".daily-9").addEventListener("click", function() {
   localStorage.setItem("mode", "daily-9");
@@ -735,40 +574,7 @@ document.querySelector(".daily-9").addEventListener("click", function() {
   } else {
     document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "none";
   }
-  allscoresum=0
-  for (i=4; i<10; i++) {
-    if (localStorage.getItem(`user-game-history-${i}`)[puzzledaynumber - 1] != "1") {
-      allscoresum+=100
-    } else {
-      allscoresum+=parseInt(localStorage.getItem(`daily-best-score-${i}`))
-    }
-  }
-  if (allscoresum==39) {
-    document.querySelectorAll(".game-modes").forEach(function(item) {
-      item.setAttribute("style",
-    "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
-    });
-    document.querySelectorAll(".bottombuttons").forEach(function(item) {
-      item.setAttribute("style",
-    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
-    });
-    document.querySelectorAll(".operationbuttons").forEach(function(item) {
-      item.setAttribute("style",
-    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
-    });
-    document.querySelector("h2").setAttribute("style",
-      "background-image: linear-gradient(to bottom, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; -webkit-background-clip:text;");
-    document.querySelector("h3").setAttribute("style",
-      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
-    document.querySelector("h1").setAttribute("style",
-      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
-    document.querySelector(".score").setAttribute("style",
-      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
-    for (let i = 0; i < 4; i++) {
-      document.querySelectorAll(".statnumber")[i].setAttribute("style",
-        "background-image: linear-gradient(to top, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
-    }
-  }
+  bigGold();
 })
 
 
