@@ -774,16 +774,38 @@ document.querySelector(".daily-9").addEventListener("click", function() {
 
 document.querySelector(".share-button").addEventListener("click", function() {
   mode = localStorage.getItem("mode");
-  try {
-    navigator.share({
-      title: "NumberCrunch",
-      text: "NumberCrunch Day " + String(puzzledaynumber) + ":\nI solved The Daily "+mode[6] +" in " + String(localStorage.getItem(`daily-best-score-${mode[6]}`)) + " moves!",
-      url: "https://numbercrunch.app"
-    });
-    console.log("Data was shared successfully");
-  } catch (err) {
-    console.error("Share failed:", err.message);
+  allscoresum=0
+  for (i=4; i<10; i++) {
+    if (localStorage.getItem(`user-game-history-${i}`)[puzzledaynumber - 1] != "1") {
+      allscoresum+=100
+    } else {
+      allscoresum+=parseInt(localStorage.getItem(`daily-best-score-${i}`))
+    }
   }
+  if (allscoresum==39) {
+    try {
+      navigator.share({
+        title: "NumberCrunch",
+        text: "NumberCrunch Day " + String(puzzledaynumber) + ":\nI Aced Every Daily Challenge For Day " + String(puzzledaynumber) +"!",
+        url: "https://numbercrunch.app"
+      });
+      console.log("Data was shared successfully");
+    } catch (err) {
+      console.error("Share failed:", err.message);
+    }
+  }else {
+    try {
+      navigator.share({
+        title: "NumberCrunch",
+        text: "NumberCrunch Day " + String(puzzledaynumber) + ":\nI solved The Daily "+mode[6] +" in " + String(localStorage.getItem(`daily-best-score-${mode[6]}`)) + " moves!",
+        url: "https://numbercrunch.app"
+      });
+      console.log("Data was shared successfully");
+    } catch (err) {
+      console.error("Share failed:", err.message);
+    }
+  }
+
 
   document.querySelector(".share-button").innerHTML = "Copied";
 
