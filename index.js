@@ -313,7 +313,7 @@ function winning() {
   if (allscoresum==39) {
     document.querySelectorAll(".game-modes").forEach(function(item) {
       item.setAttribute("style",
-    "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
+    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
     });
     document.querySelectorAll(".bottombuttons").forEach(function(item) {
       item.setAttribute("style",
