@@ -59,7 +59,10 @@ function initializeLocalStorage() {
     localStorage.setItem(`daily-best-score-${i}`, "---");
   }
 }
-if (localStorage.getItem("mode") === null || localStorage.getItem("user-game-history-4").split(",").length > puzzledaynumber) {
+if (localStorage.getItem("mode") === null){
+  initializeLocalStorage();
+}
+if (localStorage.getItem("user-game-history-4").split(",").length > puzzledaynumber){
   initializeLocalStorage();
 }
 
