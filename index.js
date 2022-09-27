@@ -59,9 +59,6 @@ function initializeLocalStorage() {
     localStorage.setItem(`daily-best-score-${i}`, "---");
   }
 }
-if (localStorage.getItem("mode") === null){
-  initializeLocalStorage();
-}
 if (localStorage.getItem("user-game-history-4") === null){
   initializeLocalStorage();
 }
@@ -268,6 +265,7 @@ document.querySelector('.tryagain-button').addEventListener('click', function() 
   document.getElementById("usernumber").innerHTML = insertCommas(parseInt(localStorage.getItem(`usernumber-${mode[6]}`)));
   madeValidMove(parseInt(mode[6]));
   }
+
   /*
   document.querySelector('.close-ad').style.display = "none";
   document.querySelector('.bg-modal-ads').style.display = "flex";
@@ -314,15 +312,31 @@ function winning() {
   }
   if (allscoresum==39) {
     document.querySelectorAll(".game-modes").forEach(function(item) {
-      item.style.color = "#db9b21";
-      item.style.borderColor = "#cb9b51";
-    })
-    document.querySelector("h3").style.color = "#db9b21";
-    document.querySelector(".score").style.color = "#db9b21";
+      item.setAttribute("style",
+    "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
+    });
+    document.querySelectorAll(".bottombuttons").forEach(function(item) {
+      item.setAttribute("style",
+    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
+    });
+    document.querySelectorAll(".operationbuttons").forEach(function(item) {
+      item.setAttribute("style",
+    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
+    });
+    document.querySelector("h2").setAttribute("style",
+      "background-image: linear-gradient(to bottom, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; -webkit-background-clip:text;");
+      document.querySelector("h2").innerHTML = "Congratulations! You Aced Every Challenge!"
+    document.querySelector("h3").setAttribute("style",
+      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    document.querySelector("h1").setAttribute("style",
+      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    document.querySelector(".score").setAttribute("style",
+      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
     for (let i = 0; i < 4; i++) {
-      document.querySelectorAll(".statnumber")[i].style.color = "#eeab21";
+      document.querySelectorAll(".statnumber")[i].setAttribute("style",
+        "background-image: linear-gradient(to top, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
     }
-    }
+  }
   console.log(allscoresum);
 }
 /*update moves list and check for inverse operations*/
@@ -451,9 +465,6 @@ document.querySelector(".daily-4").addEventListener("click", function() {
   if (parseInt(localStorage.getItem(`usernumber-${mode[6]}`)) == targetnumber) {
     madeValidMove(mode[6]);
     winning();
-    setTimeout(function() {
-      document.querySelector('.bg-modal-stats').style.display = "flex";
-    }, 800)
   } else {
     for (let i = 0; i < 8; i++) {
       document.querySelectorAll(".operationbuttons")[i].disabled = false;
@@ -463,6 +474,40 @@ document.querySelector(".daily-4").addEventListener("click", function() {
     document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "inline";
   } else {
     document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "none";
+  }
+  allscoresum=0
+  for (i=4; i<10; i++) {
+    if (localStorage.getItem(`user-game-history-${i}`)[puzzledaynumber - 1] != "1") {
+      allscoresum+=100
+    } else {
+      allscoresum+=parseInt(localStorage.getItem(`daily-best-score-${i}`))
+    }
+  }
+  if (allscoresum==39) {
+    document.querySelectorAll(".game-modes").forEach(function(item) {
+      item.setAttribute("style",
+    "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
+    });
+    document.querySelectorAll(".bottombuttons").forEach(function(item) {
+      item.setAttribute("style",
+    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
+    });
+    document.querySelectorAll(".operationbuttons").forEach(function(item) {
+      item.setAttribute("style",
+    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
+    });
+    document.querySelector("h2").setAttribute("style",
+      "background-image: linear-gradient(to bottom, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; -webkit-background-clip:text;");
+    document.querySelector("h3").setAttribute("style",
+      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    document.querySelector("h1").setAttribute("style",
+      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    document.querySelector(".score").setAttribute("style",
+      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    for (let i = 0; i < 4; i++) {
+      document.querySelectorAll(".statnumber")[i].setAttribute("style",
+        "background-image: linear-gradient(to top, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    }
   }
 })
 document.querySelector(".daily-5").addEventListener("click", function() {
@@ -472,9 +517,6 @@ document.querySelector(".daily-5").addEventListener("click", function() {
   if (parseInt(localStorage.getItem(`usernumber-${mode[6]}`)) == targetnumber) {
     madeValidMove(mode[6]);
     winning();
-    setTimeout(function() {
-      document.querySelector('.bg-modal-stats').style.display = "flex";
-    }, 800)
   } else {
     for (let i = 0; i < 8; i++) {
       document.querySelectorAll(".operationbuttons")[i].disabled = false;
@@ -484,6 +526,40 @@ document.querySelector(".daily-5").addEventListener("click", function() {
     document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "inline";
   } else {
     document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "none";
+  }
+  allscoresum=0
+  for (i=4; i<10; i++) {
+    if (localStorage.getItem(`user-game-history-${i}`)[puzzledaynumber - 1] != "1") {
+      allscoresum+=100
+    } else {
+      allscoresum+=parseInt(localStorage.getItem(`daily-best-score-${i}`))
+    }
+  }
+  if (allscoresum==39) {
+    document.querySelectorAll(".game-modes").forEach(function(item) {
+      item.setAttribute("style",
+    "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
+    });
+    document.querySelectorAll(".bottombuttons").forEach(function(item) {
+      item.setAttribute("style",
+    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
+    });
+    document.querySelectorAll(".operationbuttons").forEach(function(item) {
+      item.setAttribute("style",
+    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
+    });
+    document.querySelector("h2").setAttribute("style",
+      "background-image: linear-gradient(to bottom, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; -webkit-background-clip:text;");
+    document.querySelector("h3").setAttribute("style",
+      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    document.querySelector("h1").setAttribute("style",
+      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    document.querySelector(".score").setAttribute("style",
+      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    for (let i = 0; i < 4; i++) {
+      document.querySelectorAll(".statnumber")[i].setAttribute("style",
+        "background-image: linear-gradient(to top, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    }
   }
 })
 document.querySelector(".daily-6").addEventListener("click", function() {
@@ -493,9 +569,6 @@ document.querySelector(".daily-6").addEventListener("click", function() {
   if (parseInt(localStorage.getItem(`usernumber-${mode[6]}`)) == targetnumber) {
     madeValidMove(mode[6]);
     winning();
-    setTimeout(function() {
-      document.querySelector('.bg-modal-stats').style.display = "flex";
-    }, 800)
   } else {
     for (let i = 0; i < 8; i++) {
       document.querySelectorAll(".operationbuttons")[i].disabled = false;
@@ -505,6 +578,40 @@ document.querySelector(".daily-6").addEventListener("click", function() {
     document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "inline";
   } else {
     document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "none";
+  }
+  allscoresum=0
+  for (i=4; i<10; i++) {
+    if (localStorage.getItem(`user-game-history-${i}`)[puzzledaynumber - 1] != "1") {
+      allscoresum+=100
+    } else {
+      allscoresum+=parseInt(localStorage.getItem(`daily-best-score-${i}`))
+    }
+  }
+  if (allscoresum==39) {
+    document.querySelectorAll(".game-modes").forEach(function(item) {
+      item.setAttribute("style",
+    "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
+    });
+    document.querySelectorAll(".bottombuttons").forEach(function(item) {
+      item.setAttribute("style",
+    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
+    });
+    document.querySelectorAll(".operationbuttons").forEach(function(item) {
+      item.setAttribute("style",
+    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
+    });
+    document.querySelector("h2").setAttribute("style",
+      "background-image: linear-gradient(to bottom, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; -webkit-background-clip:text;");
+    document.querySelector("h3").setAttribute("style",
+      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    document.querySelector("h1").setAttribute("style",
+      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    document.querySelector(".score").setAttribute("style",
+      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    for (let i = 0; i < 4; i++) {
+      document.querySelectorAll(".statnumber")[i].setAttribute("style",
+        "background-image: linear-gradient(to top, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    }
   }
 })
 document.querySelector(".daily-7").addEventListener("click", function() {
@@ -514,9 +621,6 @@ document.querySelector(".daily-7").addEventListener("click", function() {
   if (parseInt(localStorage.getItem(`usernumber-${mode[6]}`)) == targetnumber) {
     madeValidMove(mode[6]);
     winning();
-    setTimeout(function() {
-      document.querySelector('.bg-modal-stats').style.display = "flex";
-    }, 800)
   } else {
     for (let i = 0; i < 8; i++) {
       document.querySelectorAll(".operationbuttons")[i].disabled = false;
@@ -526,6 +630,40 @@ document.querySelector(".daily-7").addEventListener("click", function() {
     document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "inline";
   } else {
     document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "none";
+  }
+  allscoresum=0
+  for (i=4; i<10; i++) {
+    if (localStorage.getItem(`user-game-history-${i}`)[puzzledaynumber - 1] != "1") {
+      allscoresum+=100
+    } else {
+      allscoresum+=parseInt(localStorage.getItem(`daily-best-score-${i}`))
+    }
+  }
+  if (allscoresum==39) {
+    document.querySelectorAll(".game-modes").forEach(function(item) {
+      item.setAttribute("style",
+    "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
+    });
+    document.querySelectorAll(".bottombuttons").forEach(function(item) {
+      item.setAttribute("style",
+    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
+    });
+    document.querySelectorAll(".operationbuttons").forEach(function(item) {
+      item.setAttribute("style",
+    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
+    });
+    document.querySelector("h2").setAttribute("style",
+      "background-image: linear-gradient(to bottom, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; -webkit-background-clip:text;");
+    document.querySelector("h3").setAttribute("style",
+      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    document.querySelector("h1").setAttribute("style",
+      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    document.querySelector(".score").setAttribute("style",
+      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    for (let i = 0; i < 4; i++) {
+      document.querySelectorAll(".statnumber")[i].setAttribute("style",
+        "background-image: linear-gradient(to top, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    }
   }
 })
 document.querySelector(".daily-8").addEventListener("click", function() {
@@ -535,9 +673,6 @@ document.querySelector(".daily-8").addEventListener("click", function() {
   if (parseInt(localStorage.getItem(`usernumber-${mode[6]}`)) == targetnumber) {
     madeValidMove(mode[6]);
     winning();
-    setTimeout(function() {
-      document.querySelector('.bg-modal-stats').style.display = "flex";
-    }, 800)
   } else {
     for (let i = 0; i < 8; i++) {
       document.querySelectorAll(".operationbuttons")[i].disabled = false;
@@ -547,6 +682,40 @@ document.querySelector(".daily-8").addEventListener("click", function() {
     document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "inline";
   } else {
     document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "none";
+  }
+  allscoresum=0
+  for (i=4; i<10; i++) {
+    if (localStorage.getItem(`user-game-history-${i}`)[puzzledaynumber - 1] != "1") {
+      allscoresum+=100
+    } else {
+      allscoresum+=parseInt(localStorage.getItem(`daily-best-score-${i}`))
+    }
+  }
+  if (allscoresum==39) {
+    document.querySelectorAll(".game-modes").forEach(function(item) {
+      item.setAttribute("style",
+    "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
+    });
+    document.querySelectorAll(".bottombuttons").forEach(function(item) {
+      item.setAttribute("style",
+    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
+    });
+    document.querySelectorAll(".operationbuttons").forEach(function(item) {
+      item.setAttribute("style",
+    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
+    });
+    document.querySelector("h2").setAttribute("style",
+      "background-image: linear-gradient(to bottom, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; -webkit-background-clip:text;");
+    document.querySelector("h3").setAttribute("style",
+      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    document.querySelector("h1").setAttribute("style",
+      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    document.querySelector(".score").setAttribute("style",
+      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    for (let i = 0; i < 4; i++) {
+      document.querySelectorAll(".statnumber")[i].setAttribute("style",
+        "background-image: linear-gradient(to top, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    }
   }
 })
 document.querySelector(".daily-9").addEventListener("click", function() {
@@ -556,9 +725,6 @@ document.querySelector(".daily-9").addEventListener("click", function() {
   if (parseInt(localStorage.getItem(`usernumber-${mode[6]}`)) == targetnumber) {
     madeValidMove(mode[6]);
     winning();
-    setTimeout(function() {
-      document.querySelector('.bg-modal-stats').style.display = "flex";
-    }, 800)
   } else {
     for (let i = 0; i < 8; i++) {
       document.querySelectorAll(".operationbuttons")[i].disabled = false;
@@ -568,6 +734,40 @@ document.querySelector(".daily-9").addEventListener("click", function() {
     document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "inline";
   } else {
     document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "none";
+  }
+  allscoresum=0
+  for (i=4; i<10; i++) {
+    if (localStorage.getItem(`user-game-history-${i}`)[puzzledaynumber - 1] != "1") {
+      allscoresum+=100
+    } else {
+      allscoresum+=parseInt(localStorage.getItem(`daily-best-score-${i}`))
+    }
+  }
+  if (allscoresum==39) {
+    document.querySelectorAll(".game-modes").forEach(function(item) {
+      item.setAttribute("style",
+    "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
+    });
+    document.querySelectorAll(".bottombuttons").forEach(function(item) {
+      item.setAttribute("style",
+    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
+    });
+    document.querySelectorAll(".operationbuttons").forEach(function(item) {
+      item.setAttribute("style",
+    "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
+    });
+    document.querySelector("h2").setAttribute("style",
+      "background-image: linear-gradient(to bottom, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; -webkit-background-clip:text;");
+    document.querySelector("h3").setAttribute("style",
+      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    document.querySelector("h1").setAttribute("style",
+      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    document.querySelector(".score").setAttribute("style",
+      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    for (let i = 0; i < 4; i++) {
+      document.querySelectorAll(".statnumber")[i].setAttribute("style",
+        "background-image: linear-gradient(to top, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    }
   }
 })
 
