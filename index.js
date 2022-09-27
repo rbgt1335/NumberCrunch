@@ -59,6 +59,9 @@ function initializeLocalStorage() {
     localStorage.setItem(`daily-best-score-${i}`, "---");
   }
 }
+if (localStorage.getItem("mode") === null){
+  initializeLocalStorage();
+}
 if (localStorage.getItem("user-game-history-4") === null){
   initializeLocalStorage();
 }
@@ -574,7 +577,7 @@ document.querySelector(".share-button").addEventListener("click", function() {
   try {
     navigator.share({
       title: "NumberCrunch",
-      text: "NumberCrunch Day " + String(puzzledaynumber) + ":\nI solved The Daily "+mode[6] +" in " + String(localStorage.getItem("daily-best-score")) + " moves!",
+      text: "NumberCrunch Day " + String(puzzledaynumber) + ":\nI solved The Daily "+mode[6] +" in " + String(localStorage.getItem(`daily-best-score-${mode[6]}`)) + " moves!",
       url: "https://numbercrunch.app"
     });
     console.log("Data was shared successfully");
