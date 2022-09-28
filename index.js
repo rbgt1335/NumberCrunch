@@ -12,20 +12,17 @@ function insertCommas(x) {
 }
 
 function bigGold() {
-  mode=localStorage.getItem("mode")
-  
-  allscoresum=0
+  mode=localStorage.getItem("mode");
+  allscoresum=0;
   for (i=4; i<10; i++) {
-    if (localStorage.getItem(`user-game-history-${i}`)[puzzledaynumber - 1] != "1") {
+    if (localStorage.getItem(`user-game-history-${i}`)[localStorage.getItem(`user-game-history-${i}`).length - 1] != "1") {
       allscoresum+=100
     } else {
       allscoresum+=parseInt(localStorage.getItem(`daily-best-score-${i}`))
     }
   }
   if (allscoresum==39) {
-    if (parseInt(localStorage.getItem(`usernumber-${mode[6]}`))==targetnumber) {
-      document.querySelector("h2").innerHTML = "Congratulations! You Aced Every Challenge!";
-    }
+
     document.querySelectorAll(".game-modes").forEach(function(item) {
       item.setAttribute("style",
     "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; border-color:#f6e27a; -webkit-background-clip:text;");
@@ -49,6 +46,9 @@ function bigGold() {
     for (let i = 0; i < 4; i++) {
       document.querySelectorAll(".statnumber")[i].setAttribute("style",
         "background-image: linear-gradient(to top, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+    }
+    if (parseInt(localStorage.getItem(`usernumber-${mode[6]}`))==parseInt(targetnumber)) {
+      document.querySelector("h2").innerHTML = "Congratulations! You Aced Every Challenge!";
     }
   }
 }
@@ -86,9 +86,6 @@ const puzzle9 = [['1', '77449'], ['2', '10389'], ['3', '4414'], ['4', '9720'], [
 
 var arr = getpuzzles(puzzledaynumber - 1);
 
-console.log(arr
-);
-
 function initializeLocalStorage() {
   localStorage.setItem("mode", "daily-4");
   for (i=4; i<10; i++) {
@@ -118,8 +115,6 @@ if (localStorage.getItem("user-game-history-4").split(",").length < puzzledaynum
   }
 }
 
-console.log(localStorage);
-
 function lowerSquare(num) {
   return [(Math.floor(Math.sqrt(num))) ** 2, (Math.floor(Math.sqrt(num)) + 1) ** 2]
 }
@@ -127,7 +122,6 @@ function lowerSquare(num) {
 /*load in daily data*/
 
 function loadDailyData(mode) {
-  console.log(mode[6]);
   targetnumber = arr[parseInt(mode[6])-4][1];
   document.querySelector("h3").style.color = colorpallete[mode][0];
   document.querySelector(".score").style.color = colorpallete[mode][1];
@@ -139,7 +133,6 @@ function loadDailyData(mode) {
       item.style.color = "#303030";
       item.style.borderColor = "#303030";
     }
-    console.log(mode[6]);
 
   })
   document.querySelectorAll(".score")[0].innerHTML = "Moves: " + localStorage.getItem(`userscore-${mode[6]}`);
@@ -163,7 +156,7 @@ function loadDailyData(mode) {
   }
 }
 loadDailyData(localStorage.getItem("mode"));
-
+bigGold();
 
 
 /*Math Operations For Buttons*/
@@ -345,13 +338,11 @@ function winning() {
   }
   document.querySelectorAll(".stats-bottom-buttons")[1].style.display = "inline";
   bigGold();
-  console.log(allscoresum);
 }
 /*update moves list and check for inverse operations*/
 
 /*valid move error drop*/
 function madeValidMove(modeval) {
-  console.log(modeval);
   console.log(localStorage.getItem(`userscore-${modeval}`));
   document.querySelectorAll(".error-messages")[0].style.color = "#525252";
   document.querySelectorAll(".error-messages")[0].innerHTML = "_";
