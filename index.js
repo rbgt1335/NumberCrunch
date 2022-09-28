@@ -576,7 +576,7 @@ document.querySelector(".share-button").addEventListener("click", function() {
   mode = localStorage.getItem("mode");
   allscoresum=0
   for (i=4; i<10; i++) {
-    if (localStorage.getItem(`user-game-history-${i}`)[puzzledaynumber - 1] != "1") {
+    if (localStorage.getItem(`user-game-history-${i}`)[localStorage.getItem(`user-game-history-${i}`).length - 1] != "1") {
       allscoresum+=100
     } else {
       allscoresum+=parseInt(localStorage.getItem(`daily-best-score-${i}`))
