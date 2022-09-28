@@ -47,7 +47,7 @@ function bigGold() {
       document.querySelectorAll(".statnumber")[i].setAttribute("style",
         "background-image: linear-gradient(to top, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
     }
-    if (parseInt(localStorage.getItem(`usernumber-${mode[6]}`))==parseInt(targetnumber)) {
+    if (parseInt(localStorage.getItem(`userscore-${mode[6]}`))==parseInt(mode[6])) {
       document.querySelector("h2").innerHTML = "Congratulations! You Aced Every Challenge!";
     }
   }
