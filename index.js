@@ -40,7 +40,7 @@ function bigGold() {
     document.querySelector("h3").setAttribute("style",
       "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
     document.querySelector("h1").setAttribute("style",
-      "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
+      "background-image: linear-gradient(to right, #cb9b51 0, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%); color:transparent; -webkit-background-clip:text;");
     document.querySelector(".score").setAttribute("style",
       "background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%); color:transparent; -webkit-background-clip:text;");
     for (let i = 0; i < 4; i++) {
