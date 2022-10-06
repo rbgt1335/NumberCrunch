@@ -946,6 +946,7 @@ for (let m = 4; m < 10; m++) {
   })
 }
 
+
 document.querySelector(".share-button").addEventListener("click", function() {
   var mode = localStorage.getItem("mode");
   var allscoresum = 0;
@@ -1022,12 +1023,12 @@ document.querySelector(".share-button").addEventListener("click", function() {
           title: "NumberCrunch",
           text: "NumberCrunch Day " + String(puzzledaynumber) + ":\n" +
             "Best Scores For Wild Puzzles: \n" +
-            `D4: ${scorearr[0]}\n` +
-            `D5: ${scorearr[1]}\n` +
-            `D6: ${scorearr[2]}\n` +
-            `D7: ${scorearr[3]}\n` +
-            `D8: ${scorearr[4]}\n` +
-            `D9: ${scorearr[5]}\n`,
+            `W4: ${scorearr[0]}\n` +
+            `W5: ${scorearr[1]}\n` +
+            `W6: ${scorearr[2]}\n` +
+            `W7: ${scorearr[3]}\n` +
+            `W8: ${scorearr[4]}\n` +
+            `W9: ${scorearr[5]}\n`,
           url: "https://numbercrunch.app"
         });
         console.log("Data was shared successfully");
@@ -1036,9 +1037,10 @@ document.querySelector(".share-button").addEventListener("click", function() {
       }
     }
   }
-  document.querySelector(".share-button").innerHTML = "Copied";
-
+  setTimeout(function() {
+    document.querySelector(".share-button").innerHTML = "Copied";
+  }, 1000);
   setTimeout(function() {
     document.querySelector(".share-button").innerHTML = "Share <i class='fa-solid fa-arrow-up-right-from-square'></i>";
-  }, 1500);
+  }, 1800);
 });
