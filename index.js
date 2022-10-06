@@ -248,10 +248,10 @@ function makeItPretty(scoresum, mode) {
     if (localStorage.getItem("mode")[0] == "d") {
       if (parseInt(localStorage.getItem(`userscore-${mode[6]}`)) == parseInt(mode[6])) {
         document.querySelector("h2").innerHTML = "Congratulations! You Aced Every Daily!";
-      } else {
-        if (parseInt(localStorage.getItem(`userscore-w${mode[6]}`)) == parseInt(mode[6])) {
-          document.querySelector("h2").innerHTML = "Congratulations! You Aced Every Wild!";
-        }
+      }
+    } else {
+      if (parseInt(localStorage.getItem(`userscore-w${mode[6]}`)) == parseInt(mode[6])) {
+        document.querySelector("h2").innerHTML = "Congratulations! You Aced Every Wild!";
       }
     }
   } else if (scoresum > 39) {
