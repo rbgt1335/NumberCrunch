@@ -11,7 +11,6 @@
   <!-- Bootstrap-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-
   <!-- fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,14 +24,17 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9B7MSX7NFD"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
   gtag('js', new Date());
 
   gtag('config', 'G-9B7MSX7NFD');
 </script>
 
 <body ontouchstart>
-  <div>
+  <div class=topBanner>
     <h1 class="titlesbar">NumberCrunch</h1>
   </div>
 
@@ -65,7 +67,6 @@
     <button type="button" name="button" class="operationbuttons">√x</button>
   </div>
 
-
   <div class="game-mode-buttons">
     <button type="button" name="button" class="game-modes daily-4">Daily 4</button>
     <button type="button" name="button" class="game-modes daily-5">Daily 5</button>
@@ -73,15 +74,14 @@
     <button type="button" name="button" class="game-modes daily-7">Daily 7</button>
     <button type="button" name="button" class="game-modes daily-8">Daily 8</button>
     <button type="button" name="button" class="game-modes daily-9">Daily 9</button>
-    <!--
-    <button type="button" name="button" class="game-modes nightmare-9">Nightmare 9</button>
-  -->
+    <button type="button" name="button" class="game-modes wild--4 game-modes-w">Wild 4</button>
+    <button type="button" name="button" class="game-modes wild--5 game-modes-w">Wild 5</button>
+    <button type="button" name="button" class="game-modes wild--6 game-modes-w">Wild 6</button>
+    <button type="button" name="button" class="game-modes wild--7 game-modes-w">Wild 7</button>
+    <button type="button" name="button" class="game-modes wild--8 game-modes-w">Wild 8</button>
+    <button type="button" name="button" class="game-modes wild--9 game-modes-w">Wild 9</button>
   </div>
-
   <div class="bottom-button-container">
-    <!--
-    <button type="button" name="button" class="bottombuttons open-settings"><i class="fa-solid fa-wrench"></i></button>
-  -->
     <button type="button" name="button" class="bottombuttons open-stats"><i class="fa-solid fa-square-poll-vertical"></i></button>
     <button type="button" name="button" class="bottombuttons open-info"><i class="fa-solid fa-circle-info"></i></button>
   </div>
@@ -92,23 +92,55 @@
     <div class="modal-content">
       <div class="close-stats">+</div>
       <div class="stats">
-        <p class="modal-heading">Stats</p>
+        <p class="stats-modal-heading">Stats</p>
         <div class="stats-facts-container">
           <p class="stats-para statheader">Your Best Scores Today </p>
-          <p class="stats-para statnumber daily-best-score"></p>
+          <div class="dailies">
+            <p class="stats-para statnumber daily-best-score"></p>
+            <p class="stats-para statnumber daily-best-score"></p>
+            <p class="stats-para statnumber daily-best-score"></p>
+            <p class="stats-para statnumber daily-best-score"></p>
+            <p class="stats-para statnumber daily-best-score"></p>
+            <p class="stats-para statnumber daily-best-score"></p>
+          </div>
+
 
         </div>
         <div class="stats-facts-container">
           <p class="stats-para statheader">Games Won </p>
-          <p class="stats-para statnumber games-won"></p>
+          <div class="games-won-container">
+            <p class="stats-para statnumber games-won"></p>
+            <p class="stats-para statnumber games-won"></p>
+            <p class="stats-para statnumber games-won"></p>
+            <p class="stats-para statnumber games-won"></p>
+            <p class="stats-para statnumber games-won"></p>
+            <p class="stats-para statnumber games-won"></p>
+          </div>
+
         </div>
         <div class="stats-facts-container">
           <p class="stats-para statheader">Current Streak </p>
-          <p class="stats-para statnumber daily-streak"></p>
+          <div class="daily-streak-container">
+            <p class="stats-para statnumber daily-streak"></p>
+            <p class="stats-para statnumber daily-streak"></p>
+            <p class="stats-para statnumber daily-streak"></p>
+            <p class="stats-para statnumber daily-streak"></p>
+            <p class="stats-para statnumber daily-streak"></p>
+            <p class="stats-para statnumber daily-streak"></p>
+          </div>
+
         </div>
         <div class="stats-facts-container">
           <p class="stats-para statheader">Longest Streak </p>
-          <p class="stats-para statnumber longest-streak"></p>
+          <div class="longest-streak-container">
+            <p class="stats-para statnumber longest-streak"></p>
+            <p class="stats-para statnumber longest-streak"></p>
+            <p class="stats-para statnumber longest-streak"></p>
+            <p class="stats-para statnumber longest-streak"></p>
+            <p class="stats-para statnumber longest-streak"></p>
+            <p class="stats-para statnumber longest-streak"></p>
+          </div>
+
         </div>
       </div>
 
@@ -127,21 +159,7 @@
         <p class="modal-heading">New Puzzles Daily!</p>
 
         <p class="HTPtextcontent">
-          The daily games are named by how many moves the fastest solution is. So The Daily 5, for instance, can't be solved in any less than 5 moves, but can be solved ideally in 5 moves. 
-        </p>
-
-        <p class="modal-heading">Some Hints</p>
-
-        <p class="HTPtextcontent">
-          Multiplying by 10 and dividing by 2 is equivalent to multiplying by 5.
-        </p>
-
-        <p class="HTPtextcontent">
-          For substantial gaps using squares or roots will be fastest, but rootable values get farther apart the higher you are.
-        </p>
-
-        <p class="HTPtextcontent">
-          5000 and 5100 may be 100 away from one another... but 50 and 51 are one from one another.
+          The games are named by how many moves the fastest solution is. So The Daily 5, for instance, can't be solved in any less than 5 moves, but can be solved ideally in 5 moves.
         </p>
 
         <p class="modal-heading">How is my data stored?</p>
@@ -162,7 +180,30 @@
     </div>
   </div>
 
-<!--
+  <div class="bg-modal-update">
+
+    <div class="modal-content">
+      <div class="close-stats">+</div>
+      <div class="info">
+        <p class="modal-heading">Updates / Fresh Start</p>
+
+        <p class="HTPtextcontent">
+          Hello and thank you so much for playing NumberCrunch! This has been a very exciting journey for me as I've learned to code and create this game.
+        </p>
+        <p class="HTPtextcontent">
+          I've made a new game mode to play each day as well as refined some of the layout. Please share with your friends now that they have a chance at a new beginning!
+          Also know that this is the LAST major update and any further revisions will be cosmetic/bug fixes instead of game overhauls and restarting of days.
+        </p>
+        <p class="HTPtextcontent">
+          Thank you for Beta testing and I hope you enjoy the game :)
+        </p>
+
+
+      </div>
+    </div>
+  </div>
+
+  <!--
   <div class="bg-modal-ads">
     <div class="close-ad">+</div>
     <div class="ad-content">
@@ -170,7 +211,19 @@
   </div>
 -->
 
-<script src="index.js">
-</script>
+  <script type="module" src="./Puzzles/js4p.js"></script>
+  <script type="module" src="./Puzzles/js5p.js"></script>
+  <script type="module" src="./Puzzles/js6p.js"></script>
+  <script type="module" src="./Puzzles/js7p.js"></script>
+  <script type="module" src="./Puzzles/js8p.js"></script>
+  <script type="module" src="./Puzzles/js9p.js"></script>
+  <script type="module" src="./Puzzles/jsw4p.js"></script>
+  <script type="module" src="./Puzzles/jsw5p.js"></script>
+  <script type="module" src="./Puzzles/jsw6p.js"></script>
+  <script type="module" src="./Puzzles/jsw7p.js"></script>
+  <script type="module" src="./Puzzles/jsw8p.js"></script>
+  <script type="module" src="./Puzzles/jsw9p.js"></script>
+  <script type="module" src="index.js">
+  </script>
 
 </html>
