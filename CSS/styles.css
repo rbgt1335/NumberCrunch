@@ -44,24 +44,24 @@ h3 {
   margin-right: auto;
   max-width: 290px;
   min-width: 284px;
-  margin-bottom: 33px;
+  margin-bottom: 28px;
 }
 
 .score {
   font-weight: bold;
   font-size: 20px;
-  margin-top: 58px;
+  margin-top: 52px;
   margin-bottom: 0;
 }
 
 .error-messages {
   color: #EEEEEE;
-  margin: 10px 20px 0;
+  margin: 8px 20px 0;
 }
 
 .error-messages-values {
   color: #EEEEEE;
-  margin: 0 20px 10px;
+  margin: 0 20px 8px;
 }
 
 .score-div {
