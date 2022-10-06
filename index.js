@@ -120,8 +120,6 @@ const operations = {
 };
 var arr = getpuzzles(puzzledaynumber - 1);
 
-console.log(arr);
-
 function initializeLocalStorage() {
   localStorage.setItem("mode", "daily-4");
   for (let i = 4; i < 10; i++) {
@@ -484,12 +482,7 @@ function loadDailyData(mode) {
     }
   } else {
     var targetnumber = arr[parseInt(mode[6]) + 2][1];
-    console.log(arr[parseInt(mode[6]) + 2][1]);
     for (let h = 0; h < 8; h++) {
-      console.log(arr[parseInt(mode[6]) + 2]);
-      console.log(arr[parseInt(mode[6]) + 2][2][h]);
-      console.log(operations[arr[parseInt(mode[6]) + 2][2][h]]);
-      console.log(operations[arr[parseInt(mode[6]) + 2][2][h]][1]);
       document.querySelectorAll(".operationbuttons")[h].innerHTML = String(operations[arr[parseInt(mode[6]) + 2][2][h]][1]);
       document.querySelectorAll(".operationbuttons")[h].replaceWith(document.querySelectorAll(".operationbuttons")[h].cloneNode(true));
       document.querySelectorAll(".operationbuttons")[h].addEventListener("click", function linkOperationFunctionality() {
@@ -596,8 +589,6 @@ function loadDailyData(mode) {
   }
   awardStyles();
 }
-console.log(localStorage.getItem("mode"));
-
 
 /*Math Operations For Buttons*/
 loadDailyData(localStorage.getItem("mode"));
