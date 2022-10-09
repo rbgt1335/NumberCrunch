@@ -626,7 +626,7 @@ document.querySelector('.tryagain-button').addEventListener('click', function() 
     }, 5000);
     localStorage.setItem("retry-count","0");
   } else {
-    localStorage.setItem("retry-count", ParseInt(localStorage.getItem("retry-count")) + 1);
+    localStorage.setItem("retry-count", parseInt(localStorage.getItem("retry-count")) + 1);
   }
   var mode = localStorage.getItem("mode")
   if (mode[0] == "d") {
