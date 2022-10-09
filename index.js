@@ -147,9 +147,6 @@ if (localStorage.getItem("user-game-history-4").split(",").length > puzzledaynum
   initializeLocalStorage();
 }
 
-if (localStorage.getItem("retry-count") === null) {
-  localStorage.setItem("retry-count", "0")
-}
 
 function awardStyles() {
   var mode = localStorage.getItem("mode");
@@ -604,7 +601,6 @@ for (let i = 0; i < 3; i++) {
   document.querySelectorAll('.close-stats')[i].addEventListener('click', function() {
     document.querySelector('.bg-modal-stats').style.display = "none";
     document.querySelector('.bg-modal-info').style.display = "none";
-    document.querySelector('.bg-modal-ad').style.display = "none";
   })
 }
 document.querySelectorAll('.open-stats')[0].addEventListener('click', function() {
@@ -618,16 +614,6 @@ document.querySelectorAll('.open-info')[0].addEventListener('click', function() 
 /*Retry Button*/
 
 document.querySelector('.tryagain-button').addEventListener('click', function() {
-  if (localStorage.getItem("retry-count")=="9") {
-    document.querySelector('.bg-modal-ad').style.display = "flex";
-    document.querySelector('.close-stats').style.display = "none";
-    setTimeout(function() {
-      document.querySelector('.close-stats').style.display = "flex";
-    }, 5000);
-    localStorage.setItem("retry-count","0");
-  } else {
-    localStorage.setItem("retry-count", parseInt(localStorage.getItem("retry-count")) + 1);
-  }
   var mode = localStorage.getItem("mode")
   if (mode[0] == "d") {
     var arr = getpuzzles(puzzledaynumber - 1);
