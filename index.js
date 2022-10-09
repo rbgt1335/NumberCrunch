@@ -11,6 +11,7 @@ function insertCommas(x) {
   return x.toLocaleString();
 };
 
+document.querySelector('.bg-modal-update').style.display = "flex";
 setTimeout(function() {
   window.location.reload();
 }, timetilnew);
