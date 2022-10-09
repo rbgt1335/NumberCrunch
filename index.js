@@ -597,7 +597,7 @@ loadDailyData(localStorage.getItem("mode"));
 /*math buttons on or off based on if you've gotten the winning number*/
 
 /*activate stat and settings buttons*/
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < 2; i++) {
   document.querySelectorAll('.close-stats')[i].addEventListener('click', function() {
     document.querySelector('.bg-modal-stats').style.display = "none";
     document.querySelector('.bg-modal-info').style.display = "none";
@@ -614,7 +614,7 @@ document.querySelectorAll('.open-info')[0].addEventListener('click', function() 
 /*Retry Button*/
 
 document.querySelector('.tryagain-button').addEventListener('click', function() {
-  var mode = localStorage.getItem("mode")
+  var mode = localStorage.getItem("mode");
   if (mode[0] == "d") {
     var arr = getpuzzles(puzzledaynumber - 1);
     var targetnumber = arr[parseInt(mode[6]) - 4][1];
