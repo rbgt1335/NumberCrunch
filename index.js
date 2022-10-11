@@ -890,8 +890,8 @@ extraCheck();
 
 /*Game Mode Selector*/
 for (let m = 4; m < 10; m++) {
-  madeValidMove()
   document.querySelector(`.daily-${m}`).addEventListener("click", function() {
+    madeValidMove();
     localStorage.setItem("mode", `daily-${m}`);
     var mode = localStorage.getItem("mode");
     loadDailyData(mode);
@@ -912,8 +912,8 @@ for (let m = 4; m < 10; m++) {
   })
 }
 for (let m = 4; m < 10; m++) {
-  madeValidMove()
   document.querySelector(`.wild--${m}`).addEventListener("click", function() {
+    madeValidMove();
     localStorage.setItem("mode", `wild--${m}`);
     var mode = localStorage.getItem("mode");
     loadDailyData(mode);
