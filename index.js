@@ -373,10 +373,6 @@ function updateStats() {
 /*load in daily data*/
 
 function loadDailyData(mode) {
-  document.querySelectorAll(".error-messages")[0].style.color = "#525252";
-  document.querySelectorAll(".error-messages")[0].innerHTML = "_";
-  document.querySelectorAll(".error-messages-values")[0].style.color = "#525252";
-  document.querySelectorAll(".error-messages-values")[0].innerHTML = "_";
   document.querySelector("h3").style.color = colorpallete[mode][0];
   document.querySelector(".score").style.color = colorpallete[mode][1];
   if (mode[0] == 'd') {
@@ -388,7 +384,7 @@ function loadDailyData(mode) {
         if (standard[h] > 0 && standard[h] < 10) {
           if (parseInt(localStorage.getItem(`usernumber-${mode[6]}`)) + operations[standard[h]][0] <= maxval) {
             localStorage.setItem(`usernumber-${mode[6]}`, parseInt(localStorage.getItem(`usernumber-${mode[6]}`)) + operations[standard[h]][0]);
-            madeValidMove(mode[6]);
+            madeValidMove();
             localStorage.setItem(`userscore-${mode[6]}`, parseInt(localStorage.getItem(`userscore-${mode[6]}`)) + 1);
           } else {
             tooLargeError();
@@ -397,7 +393,7 @@ function loadDailyData(mode) {
         } else if (standard[h] > 10 && standard[h] < 200) {
           if (parseInt(localStorage.getItem(`usernumber-${mode[6]}`)) * operations[standard[h]][0] <= maxval) {
             localStorage.setItem(`usernumber-${mode[6]}`, parseInt(localStorage.getItem(`usernumber-${mode[6]}`)) * operations[standard[h]][0]);
-            madeValidMove(mode[6]);
+            madeValidMove();
             localStorage.setItem(`userscore-${mode[6]}`, parseInt(localStorage.getItem(`userscore-${mode[6]}`)) + 1);
           } else {
             tooLargeError();
@@ -408,7 +404,7 @@ function loadDailyData(mode) {
             var curval = parseInt(localStorage.getItem(`usernumber-${mode[6]}`));
             if (curval * curval <= maxval) {
               localStorage.setItem(`usernumber-${mode[6]}`, curval * curval);
-              madeValidMove(mode[6]);
+              madeValidMove();
               localStorage.setItem(`userscore-${mode[6]}`, parseInt(localStorage.getItem(`userscore-${mode[6]}`)) + 1);
             } else {
               tooLargeError();
@@ -418,7 +414,7 @@ function loadDailyData(mode) {
             var curval = parseInt(localStorage.getItem(`usernumber-${mode[6]}`));
             if (curval * curval * curval <= maxval) {
               localStorage.setItem(`usernumber-${mode[6]}`, curval * curval * curval);
-              madeValidMove(mode[6]);
+              madeValidMove();
               localStorage.setItem(`userscore-${mode[6]}`, parseInt(localStorage.getItem(`userscore-${mode[6]}`)) + 1);
             } else {
               tooLargeError();
@@ -429,7 +425,7 @@ function loadDailyData(mode) {
           if (standard[h] < -300) {
             if (Math.cbrt(parseInt(localStorage.getItem(`usernumber-${mode[6]}`))) % 1 == 0) {
               localStorage.setItem(`usernumber-${mode[6]}`, Math.cbrt(parseInt(localStorage.getItem(`usernumber-${mode[6]}`))));
-              madeValidMove(mode[6]);
+              madeValidMove();
               localStorage.setItem(`userscore-${mode[6]}`, parseInt(localStorage.getItem(`userscore-${mode[6]}`)) + 1);
             } else {
               nonRootable(parseInt(localStorage.getItem(`usernumber-${mode[6]}`)));
@@ -438,7 +434,7 @@ function loadDailyData(mode) {
           } else {
             if (Math.sqrt(parseInt(localStorage.getItem(`usernumber-${mode[6]}`))) % 1 == 0) {
               localStorage.setItem(`usernumber-${mode[6]}`, Math.sqrt(parseInt(localStorage.getItem(`usernumber-${mode[6]}`))));
-              madeValidMove(mode[6]);
+              madeValidMove();
               localStorage.setItem(`userscore-${mode[6]}`, parseInt(localStorage.getItem(`userscore-${mode[6]}`)) + 1);
             } else {
               nonRootable(parseInt(localStorage.getItem(`usernumber-${mode[6]}`)));
@@ -449,7 +445,7 @@ function loadDailyData(mode) {
           var curval = parseInt(localStorage.getItem(`usernumber-${mode[6]}`));
           if (curval % operations[standard[h]][0] == 0) {
             localStorage.setItem(`usernumber-${mode[6]}`, parseInt(localStorage.getItem(`usernumber-${mode[6]}`)) / operations[standard[h]][0]);
-            madeValidMove(mode[6]);
+            madeValidMove();
             localStorage.setItem(`userscore-${mode[6]}`, parseInt(localStorage.getItem(`userscore-${mode[6]}`)) + 1);
           } else {
             divisionErrorDaily();
@@ -458,7 +454,7 @@ function loadDailyData(mode) {
         } else {
           if (parseInt(localStorage.getItem(`usernumber-${mode[6]}`)) - operations[standard[h]][0] > 0) {
             localStorage.setItem(`usernumber-${mode[6]}`, parseInt(localStorage.getItem(`usernumber-${mode[6]}`)) - operations[standard[h]][0]);
-            madeValidMove(mode[6]);
+            madeValidMove();
             localStorage.setItem(`userscore-${mode[6]}`, parseInt(localStorage.getItem(`userscore-${mode[6]}`)) + 1);
           } else {
             tooSmallError();
@@ -489,7 +485,7 @@ function loadDailyData(mode) {
         if (arr[parseInt(mode[6]) + 2][2][h] > 0 && arr[parseInt(mode[6]) + 2][2][h] < 10) {
           if (parseInt(localStorage.getItem(`usernumber-w${mode[6]}`)) + operations[arr[parseInt(mode[6]) + 2][2][h]][0] <= maxval) {
             localStorage.setItem(`usernumber-w${mode[6]}`, parseInt(localStorage.getItem(`usernumber-w${mode[6]}`)) + operations[arr[parseInt(mode[6]) + 2][2][h]][0]);
-            madeValidMove(mode[6]);
+            madeValidMove();
             localStorage.setItem(`userscore-w${mode[6]}`, parseInt(localStorage.getItem(`userscore-w${mode[6]}`)) + 1);
           } else {
             tooLargeError();
@@ -498,7 +494,7 @@ function loadDailyData(mode) {
         } else if (arr[parseInt(mode[6]) + 2][2][h] > 10 && arr[parseInt(mode[6]) + 2][2][h] < 200) {
           if (parseInt(localStorage.getItem(`usernumber-w${mode[6]}`)) * operations[arr[parseInt(mode[6]) + 2][2][h]][0] <= maxval) {
             localStorage.setItem(`usernumber-w${mode[6]}`, parseInt(localStorage.getItem(`usernumber-w${mode[6]}`)) * operations[arr[parseInt(mode[6]) + 2][2][h]][0]);
-            madeValidMove(mode[6]);
+            madeValidMove();
             localStorage.setItem(`userscore-w${mode[6]}`, parseInt(localStorage.getItem(`userscore-w${mode[6]}`)) + 1);
           } else {
             tooLargeError();
@@ -509,7 +505,7 @@ function loadDailyData(mode) {
             var curval = parseInt(localStorage.getItem(`usernumber-w${mode[6]}`));
             if (curval * curval <= maxval) {
               localStorage.setItem(`usernumber-w${mode[6]}`, curval * curval);
-              madeValidMove(mode[6]);
+              madeValidMove();
               localStorage.setItem(`userscore-w${mode[6]}`, parseInt(localStorage.getItem(`userscore-w${mode[6]}`)) + 1);
             } else {
               tooLargeError();
@@ -519,7 +515,7 @@ function loadDailyData(mode) {
             var curval = parseInt(localStorage.getItem(`usernumber-w${mode[6]}`));
             if (curval * curval * curval <= maxval) {
               localStorage.setItem(`usernumber-w${mode[6]}`, curval * curval * curval);
-              madeValidMove(mode[6]);
+              madeValidMove();
               localStorage.setItem(`userscore-w${mode[6]}`, parseInt(localStorage.getItem(`userscore-w${mode[6]}`)) + 1);
             } else {
               tooLargeError();
@@ -530,7 +526,7 @@ function loadDailyData(mode) {
           if (arr[parseInt(mode[6]) + 2][2][h] < -300) {
             if (Math.cbrt(parseInt(localStorage.getItem(`usernumber-w${mode[6]}`))) % 1 == 0) {
               localStorage.setItem(`usernumber-w${mode[6]}`, Math.cbrt(parseInt(localStorage.getItem(`usernumber-w${mode[6]}`))));
-              madeValidMove(mode[6]);
+              madeValidMove();
               localStorage.setItem(`userscore-w${mode[6]}`, parseInt(localStorage.getItem(`userscore-w${mode[6]}`)) + 1);
             } else {
               nonCubeRootable(parseInt(localStorage.getItem(`usernumber-w${mode[6]}`)));
@@ -539,7 +535,7 @@ function loadDailyData(mode) {
           } else {
             if (Math.sqrt(parseInt(localStorage.getItem(`usernumber-w${mode[6]}`))) % 1 == 0) {
               localStorage.setItem(`usernumber-w${mode[6]}`, Math.sqrt(parseInt(localStorage.getItem(`usernumber-w${mode[6]}`))));
-              madeValidMove(mode[6]);
+              madeValidMove();
               localStorage.setItem(`userscore-w${mode[6]}`, parseInt(localStorage.getItem(`userscore-w${mode[6]}`)) + 1);
             } else {
               nonRootable(parseInt(localStorage.getItem(`usernumber-w${mode[6]}`)));
@@ -550,7 +546,7 @@ function loadDailyData(mode) {
           var curval = parseInt(localStorage.getItem(`usernumber-w${mode[6]}`));
           if (curval % operations[arr[parseInt(mode[6]) + 2][2][h]][0] == 0) {
             localStorage.setItem(`usernumber-w${mode[6]}`, parseInt(localStorage.getItem(`usernumber-w${mode[6]}`)) / operations[arr[parseInt(mode[6]) + 2][2][h]][0]);
-            madeValidMove(mode[6]);
+            madeValidMove();
             localStorage.setItem(`userscore-w${mode[6]}`, parseInt(localStorage.getItem(`userscore-w${mode[6]}`)) + 1);
           } else {
             divisionError(curval, operations[arr[parseInt(mode[6]) + 2][2][h]][0]);
@@ -559,7 +555,7 @@ function loadDailyData(mode) {
         } else {
           if (parseInt(localStorage.getItem(`usernumber-w${mode[6]}`)) - operations[arr[parseInt(mode[6]) + 2][2][h]][0] > 0) {
             localStorage.setItem(`usernumber-w${mode[6]}`, parseInt(localStorage.getItem(`usernumber-w${mode[6]}`)) - operations[arr[parseInt(mode[6]) + 2][2][h]][0]);
-            madeValidMove(mode[6]);
+            madeValidMove();
             localStorage.setItem(`userscore-w${mode[6]}`, parseInt(localStorage.getItem(`userscore-w${mode[6]}`)) + 1);
           } else {
             tooSmallError();
@@ -643,7 +639,7 @@ document.querySelector('.tryagain-button').addEventListener('click', function() 
     }
     localStorage.setItem(`usernumber-${mode[6]}`, String(arr[parseInt(mode[6]) - 4][0]));
     document.getElementById("usernumber").innerHTML = insertCommas(parseInt(localStorage.getItem(`usernumber-${mode[6]}`)));
-    madeValidMove(parseInt(mode[6]));
+    madeValidMove();
   } else {
     var arr = getpuzzles(puzzledaynumber - 1);
     var targetnumber = arr[parseInt(mode[6]) + 2][1];
@@ -672,7 +668,7 @@ document.querySelector('.tryagain-button').addEventListener('click', function() 
     }
     localStorage.setItem(`usernumber-w${mode[6]}`, String(arr[parseInt(mode[6]) + 2][0]));
     document.getElementById("usernumber").innerHTML = insertCommas(parseInt(localStorage.getItem(`usernumber-w${mode[6]}`)));
-    madeValidMove(parseInt(mode[6]));
+    madeValidMove();
   }
 });
 /*
@@ -737,7 +733,7 @@ function winning() {
 /*update moves list and check for inverse operations*/
 
 /*valid move error drop*/
-function madeValidMove(modeval) {
+function madeValidMove() {
   document.querySelectorAll(".error-messages")[0].style.color = "#525252";
   document.querySelectorAll(".error-messages")[0].innerHTML = "_";
   document.querySelectorAll(".error-messages-values")[0].style.color = "#525252";
@@ -870,7 +866,7 @@ function extraCheck() {
   if (mode[0] == "d") {
     var targetnumber = arr[parseInt(mode[6]) - 4][1];
     if (parseInt(localStorage.getItem(`usernumber-${mode[6]}`)) == targetnumber) {
-      madeValidMove(parseInt(mode[6]));
+      madeValidMove();
       winning();
       for (let i = 0; i < 8; i++) {
         document.querySelectorAll(".operationbuttons")[i].disabled = true;
@@ -880,7 +876,7 @@ function extraCheck() {
   } else {
     var targetnumber = arr[parseInt(mode[6]) + 2][1];
     if (parseInt(localStorage.getItem(`usernumber-w${mode[6]}`)) == targetnumber) {
-      madeValidMove(parseInt(mode[6]));
+      madeValidMove();
       winning();
       for (let i = 0; i < 8; i++) {
         document.querySelectorAll(".operationbuttons")[i].disabled = true;
@@ -894,13 +890,14 @@ extraCheck();
 
 /*Game Mode Selector*/
 for (let m = 4; m < 10; m++) {
+  madeValidMove()
   document.querySelector(`.daily-${m}`).addEventListener("click", function() {
     localStorage.setItem("mode", `daily-${m}`);
     var mode = localStorage.getItem("mode");
     loadDailyData(mode);
     var targetnumber = arr[parseInt(mode[6]) - 4][1];
     if (parseInt(localStorage.getItem(`usernumber-${mode[6]}`)) == targetnumber) {
-      madeValidMove(mode[6]);
+      madeValidMove();
       winning();
     } else {
       for (let i = 0; i < 8; i++) {
@@ -915,13 +912,14 @@ for (let m = 4; m < 10; m++) {
   })
 }
 for (let m = 4; m < 10; m++) {
+  madeValidMove()
   document.querySelector(`.wild--${m}`).addEventListener("click", function() {
     localStorage.setItem("mode", `wild--${m}`);
     var mode = localStorage.getItem("mode");
     loadDailyData(mode);
     var targetnumber = arr[parseInt(mode[6]) + 2][1];
     if (parseInt(localStorage.getItem(`usernumber-w${mode[6]}`)) == targetnumber) {
-      madeValidMove(mode[6]);
+      madeValidMove();
       winning();
     } else {
       for (let i = 0; i < 8; i++) {
