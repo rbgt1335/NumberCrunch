@@ -215,6 +215,7 @@ function awardStyles() {
       }
     }
   };
+
   if (mode[0] == "d") {
     makeItPretty(allscoresum, mode);
   } else {
@@ -589,14 +590,15 @@ function loadDailyData(mode) {
 /*Math Operations For Buttons*/
 loadDailyData(localStorage.getItem("mode"));
 
-
+document.querySelector('.bg-modal-shareme').style.display = "flex";
 /*math buttons on or off based on if you've gotten the winning number*/
 
 /*activate stat and settings buttons*/
-for (let i = 0; i < 2; i++) {
+for (let i = 0; i < 3; i++) {
   document.querySelectorAll('.close-stats')[i].addEventListener('click', function() {
     document.querySelector('.bg-modal-stats').style.display = "none";
     document.querySelector('.bg-modal-info').style.display = "none";
+    document.querySelector('.bg-modal-shareme').style.display = "none";
   })
 }
 document.querySelectorAll('.open-stats')[0].addEventListener('click', function() {
@@ -911,6 +913,7 @@ for (let m = 4; m < 10; m++) {
     }
   })
 }
+
 for (let m = 4; m < 10; m++) {
   document.querySelector(`.wild--${m}`).addEventListener("click", function() {
     madeValidMove();
@@ -934,6 +937,19 @@ for (let m = 4; m < 10; m++) {
   })
 }
 
+
+document.querySelector(".share-button-first").addEventListener("click", function() {
+  try {
+    navigator.share({
+      title: "NumberCrunch",
+      text: "Try out NumberCrunch, The Daily Math Game with 12 puzzles each day!",
+      url: "https://numbercrunch.app"
+    });
+    console.log("Data was shared successfully");
+  } catch (err) {
+    console.error("Share failed:", err.message);
+  }
+});
 
 document.querySelector(".share-button").addEventListener("click", function() {
   var mode = localStorage.getItem("mode");
