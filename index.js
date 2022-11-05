@@ -590,7 +590,7 @@ function loadDailyData(mode) {
 /*Math Operations For Buttons*/
 loadDailyData(localStorage.getItem("mode"));
 
-document.querySelector('.bg-modal-shareme').style.display = "flex";
+/*document.querySelector('.bg-modal-shareme').style.display = "flex";*/
 /*math buttons on or off based on if you've gotten the winning number*/
 
 /*activate stat and settings buttons*/
