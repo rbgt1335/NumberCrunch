@@ -1,6 +1,6 @@
 var maxval = 1000000000;
 var deltaTime = 1000 * 60 * 60 * 24;
-const backdate = new Date('October 6, 2022, 00:00:00');
+const backdate = new Date('October 5, 2022, 23:00:00');
 
 var datenow = Date.now();
 const puzzledaynumber = Math.floor(((datenow - backdate) / (deltaTime))) + 1;
