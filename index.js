@@ -1048,3 +1048,78 @@ document.querySelector(".share-button").addEventListener("click", function() {
     document.querySelector(".share-button").innerHTML = "Share <i class='fa-solid fa-arrow-up-right-from-square'></i>";
   }, 1800);
 });
+
+document.querySelector(".next-button").addEventListener("click", function() {
+  var currentMode = localStorage.getItem("mode");
+  if (currentMode[0]=="d" && currentMode[6]!='9') {
+    localStorage.setItem("mode", `daily-${parseInt(currentMode[6])+1}`);
+  } else if (currentMode[0]=="d" && currentMode[6]=='9'){
+    localStorage.setItem("mode", `wild--4`);
+  } else if (currentMode[0]=="w" && currentMode[6]!='9'){
+    localStorage.setItem("mode", `wild--${parseInt(currentMode[6])+1}`);
+  } else {
+    localStorage.setItem("mode", `daily-4`);
+  }
+  var mode = localStorage.getItem("mode");
+  if (mode[0] == "d") {
+    var arr = getpuzzles(puzzledaynumber - 1);
+    var targetnumber = arr[parseInt(mode[6]) - 4][1];
+    document.getElementById("Target").innerHTML = "Target: " + insertCommas(parseInt(targetnumber));
+    if (localStorage.getItem(`user-game-history-${mode[6]}`).split(",").length < puzzledaynumber) {
+      for (i = 4; i < 10; i++) {
+        var gamearray = localStorage.getItem(`user-game-history-${i}`).split(",");
+        while (gamearray.length < puzzledaynumber) {
+          gamearray.push("0");
+        }
+        localStorage.setItem(`usernumber-${i}`, insertCommas(arr[i - 4][0].toString()));
+        localStorage.setItem(`user-game-history-${i}`, gamearray.toString());
+        localStorage.setItem(`daily-best-score-${i}`, "-");
+      }
+    }
+    if (parseInt(localStorage.getItem(`usernumber-${mode[6]}`)) == targetnumber) {
+      if (parseInt(localStorage.getItem(`daily-best-score-${mode[6]}`)) > parseInt(localStorage.getItem(`userscore-${mode[6]}`))) {
+        localStorage.setItem(`daily-best-score-${mode[6]}`, localStorage.getItem(`userscore-${mode[6]}`));
+      }
+    }
+    localStorage.setItem(`userscore-${mode[6]}`, "0");
+    document.querySelectorAll(".score")[0].innerHTML = "Moves: " + localStorage.getItem(`userscore-${mode[6]}`);
+    document.querySelector('.bg-modal-stats').style.display = "none";
+    for (let i = 0; i < 8; i++) {
+      document.querySelectorAll(".operationbuttons")[i].disabled = false;
+    }
+    localStorage.setItem(`usernumber-${mode[6]}`, String(arr[parseInt(mode[6]) - 4][0]));
+    document.getElementById("usernumber").innerHTML = insertCommas(parseInt(localStorage.getItem(`usernumber-${mode[6]}`)));
+    madeValidMove();
+  } else {
+    var arr = getpuzzles(puzzledaynumber - 1);
+    var targetnumber = arr[parseInt(mode[6]) + 2][1];
+    document.getElementById("Target").innerHTML = "Target: " + insertCommas(parseInt(targetnumber));
+    if (localStorage.getItem(`user-game-history-w${mode[6]}`).split(",").length < puzzledaynumber) {
+      for (let i = 4; i < 10; i++) {
+        var gamearray = localStorage.getItem(`user-game-history-w${i}`).split(",");
+        while (gamearray.length < puzzledaynumber) {
+          gamearray.push("0");
+        }
+        localStorage.setItem(`usernumber-w${i}`, insertCommas(arr[i - 4][0].toString()));
+        localStorage.setItem(`user-game-history-w${i}`, gamearray.toString());
+        localStorage.setItem(`daily-best-score-w${i}`, "-");
+      }
+    }
+    if (parseInt(localStorage.getItem(`usernumber-w${mode[6]}`)) == targetnumber) {
+      if (parseInt(localStorage.getItem(`daily-best-score-w${mode[6]}`)) > parseInt(localStorage.getItem(`userscore-w${mode[6]}`))) {
+        localStorage.setItem(`daily-best-score-w${mode[6]}`, localStorage.getItem(`userscore-w${mode[6]}`));
+      }
+    }
+    localStorage.setItem(`userscore-w${mode[6]}`, "0");
+    document.querySelectorAll(".score")[0].innerHTML = "Moves: " + localStorage.getItem(`userscore-w${mode[6]}`);
+    document.querySelector('.bg-modal-stats').style.display = "none";
+    for (let i = 0; i < 8; i++) {
+      document.querySelectorAll(".operationbuttons")[i].disabled = false;
+    }
+    localStorage.setItem(`usernumber-w${mode[6]}`, String(arr[parseInt(mode[6]) + 2][0]));
+    document.getElementById("usernumber").innerHTML = insertCommas(parseInt(localStorage.getItem(`usernumber-w${mode[6]}`)));
+    madeValidMove();
+  }
+  loadDailyData(mode);
+  document.querySelector('.bg-modal-stats').style.display = "none";
+})
