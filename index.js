@@ -1020,7 +1020,7 @@ document.querySelector(".share-button").addEventListener("click", function() {
     } else {
       var scorearr = []
       for (let i = 4; i < 10; i++) {
-        scorearr.push(localStorage.getItem(`daily-best-score-${i}`));
+        scorearr.push(localStorage.getItem(`daily-best-score-w${i}`));
       }
       try {
         navigator.share({
